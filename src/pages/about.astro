@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<BaseLayout
+  title="About Us — 30+ Years of Drywall Excellence"
+  description="Learn about Craftsman Drywall LLC — Steve and his crew have served Olympia, WA for 30+ years. Licensed, bonded, and insured drywall professionals."
+>
+  <Header />
+
+  <!-- Page Header -->
+  <section class="bg-navy py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-blue-brand font-semibold text-sm uppercase tracking-widest mb-3">About Craftsman Drywall</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Built on Integrity.<br/>Finished with Pride.</h1>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Over three decades of serving homeowners and businesses across the Olympia, WA area.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Story -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed text-lg">
+            <p>
+              Craftsman Drywall LLC has been a fixture in the Olympia community since 1994. Founded on the simple belief that quality work, honest pricing, and showing up when you say you will is what separates the best from the rest.
+            </p>
+            <p>
+              Steve, the owner and lead craftsman, has spent more than 30 years perfecting the art of drywall — from smooth level-5 finishes to matching decades-old textures in historic homes. His crew shares that same dedication to getting it right.
+            </p>
+            <p>
+              We've built lasting relationships across Olympia, Tanglewilde, DuPont, Yelm, Steilacoom, and North Fort Lewis because we treat every job — big or small — with the same level of professionalism and care.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-navy rounded-3xl p-8 text-center flex flex-col justify-center min-h-[220px]">
+            <div class="text-5xl font-extrabold text-blue-brand mb-2">30+</div>
+            <div class="text-white text-sm font-medium uppercase tracking-wide">Years in Business</div>
+          </div>
+          <div class="bg-blue-brand rounded-3xl p-8 text-center flex flex-col justify-center min-h-[180px]">
+            <div class="text-5xl font-extrabold text-white mb-2">100%</div>
+            <div class="text-white/90 text-sm font-medium uppercase tracking-wide">Licensed & Bonded</div>
+          </div>
+          <div class="bg-white rounded-3xl p-8 text-center border border-gray-100 shadow-sm flex flex-col justify-center min-h-[220px]">
+            <div class="text-5xl font-extrabold text-navy mb-2">Free</div>
+            <div class="text-blue-brand text-sm font-medium uppercase tracking-wide">Estimates Always</div>
+          </div>
+          <div class="bg-blue-light rounded-3xl p-8 text-center flex flex-col justify-center min-h-[180px]">
+            <div class="text-5xl font-extrabold text-blue-brand mb-2">10%</div>
+            <div class="text-navy text-sm font-medium uppercase tracking-wide">Senior & Military Discount</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Clients Choose Us</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'We Show Up', desc: "Punctuality is a point of professional pride. When we say we'll be there, we're there." },
+          { title: 'Clean Job Sites', desc: "We respect your home or business. Every job site is left clean when we're done." },
+          { title: 'Fair & Transparent Pricing', desc: "No hidden costs. No surprises. Free estimates with honest, upfront quotes." },
+          { title: '30+ Years of Skill', desc: "Decades of experience means we've seen every wall situation and know how to handle it." },
+          { title: 'Fully Licensed & Insured', desc: "Licensed, bonded, and carry full liability insurance for your complete peace of mind." },
+          { title: 'Community Discounts', desc: "10% discount for seniors and military — because we give back to the community." },
+        ].map(item => (
+          <div class="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm">
+            <div class="w-10 h-10 bg-blue-brand rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">Our Credentials</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['Licensed Contractor', 'Bonded', 'Liability Insured', 'Serving WA Since 1994', 'Senior Discount Available', 'Military Discount Available'].map(cred => (
+          <span class="bg-gray-50 border border-gray-200 text-gray-700 font-medium px-5 py-3 rounded-xl text-sm">
+            ✓ {cred}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Let's Work Together" subtext="Ready for a free, no-obligation estimate? Give us a call or fill out our contact form." />
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,83 @@
+---
+import EstimateModal from '../components/EstimateModal.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+
+const { title, description, canonical } = Astro.props;
+const siteUrl = 'https://craftsmandrywallllc.com';
+const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Craftsman Drywall LLC",
+  "telephone": "(360) 282-2218",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.png`,
+  "description": "Licensed, bonded drywall contractor serving Olympia, WA with 30+ years of experience.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Olympia",
+    "addressRegion": "WA",
+    "postalCode": "98506",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.0379,
+    "longitude": -122.9007
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:00",
+      "closes": "16:00"
+    }
+  ],
+  "priceRange": "$$",
+  "areaServed": ["Olympia", "Tanglewilde", "DuPont", "Yelm", "Steilacoom", "North Fort Lewis"],
+  "paymentAccepted": "Cash, Check, Venmo",
+  "currenciesAccepted": "USD"
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title} | Craftsman Drywall LLC — Olympia, WA</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Craftsman Drywall LLC`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:site_name" content="Craftsman Drywall LLC" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- LocalBusiness JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body class="font-sans bg-white text-gray-800 antialiased">
+    <slot />
+    <EstimateModal />
+  </body>
+</html>

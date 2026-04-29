@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://craftsmandrywallllc.com/sitemap-index.xml

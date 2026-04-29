@@ -1,0 +1,102 @@
+---
+const services = [
+  { href: '/services/drywall-installation', label: 'Drywall Installation' },
+  { href: '/services/drywall-repair', label: 'Drywall Repair' },
+  { href: '/services/remodeling', label: 'Remodeling' },
+  { href: '/services/painting', label: 'Painting' },
+];
+
+const links = [
+  { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <img src="/logo.png" alt="Craftsman Drywall LLC" class="h-12 mb-4" />
+        <p class="text-white/60 text-sm leading-relaxed">
+          Serving Olympia, WA and surrounding communities with quality drywall services since 1994.
+        </p>
+        <div class="mt-4 flex gap-2">
+          <span class="text-xs bg-white/10 text-white/70 px-2 py-1 rounded">Licensed</span>
+          <span class="text-xs bg-white/10 text-white/70 px-2 py-1 rounded">Bonded</span>
+          <span class="text-xs bg-white/10 text-white/70 px-2 py-1 rounded">Insured</span>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Services</h3>
+        <ul class="space-y-2">
+          {services.map(s => (
+            <li>
+              <a href={s.href} class="text-white/60 text-sm hover:text-blue-brand transition-colors">
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
+        <ul class="space-y-2">
+          {links.map(l => (
+            <li>
+              <a href={l.href} class="text-white/60 text-sm hover:text-blue-brand transition-colors">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-blue-brand mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <a href="tel:3602822218" class="text-white/70 text-sm hover:text-white">(360) 282-2218</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-blue-brand mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="text-white/70 text-sm">Olympia, WA 98506</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-blue-brand mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-white/70 text-sm">Mon–Fri: 7:00am – 4:00pm</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-blue-brand mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+            </svg>
+            <span class="text-white/70 text-sm">Cash · Check · Venmo</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-white/40 text-sm">
+        &copy; {new Date().getFullYear()} Craftsman Drywall LLC. All rights reserved. Olympia, WA.
+      </p>
+      <p class="text-white/40 text-sm">
+        10% Senior & Military Discount Available
+      </p>
+    </div>
+  </div>
+</footer>
