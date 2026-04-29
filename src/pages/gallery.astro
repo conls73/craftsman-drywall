@@ -52,10 +52,10 @@ import CTABanner from '../components/CTABanner.astro';
         ].map((item, i) => (
           <div 
             class={`group relative overflow-hidden rounded-3xl border border-gray-100 shadow-sm cursor-pointer ${item.class}`}
-            onclick={`openLightbox('/images/gallery/${item.src}')`}
+            onclick={`openLightbox('/craftsman-drywall/images/gallery/${item.src}')`}
           >
             <img 
-              src={`/images/gallery/${item.src}`} 
+              src={`/craftsman-drywall/images/gallery/${item.src}`} 
               alt="Professional drywall service" 
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
