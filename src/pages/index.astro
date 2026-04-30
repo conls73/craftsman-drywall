@@ -261,6 +261,7 @@ const allAreas = [
           <p class="text-blue-brand font-semibold text-sm uppercase tracking-widest">Customer Reviews</p>
         </div>
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">What Our Customers Say</h2>
+        <button id="randomize-reviews-btn" class="mb-4 bg-blue-light text-blue-brand text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-brand hover:text-white transition-colors cursor-pointer border border-blue-brand/20">Shuffle Reviews</button>
         <div class="flex items-center justify-center gap-1.5 mb-1">
           {[1,2,3,4,5].map(() => (
             <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -344,6 +345,35 @@ const allAreas = [
       </div>
     </div>
   </section>
+
+  <script>
+    const btn = document.getElementById('randomize-reviews-btn');
+    if (btn) {
+      const reviewTexts = document.querySelectorAll('.group p.italic');
+      const reviewNames = document.querySelectorAll('.group p.font-bold');
+      
+      const randomData = [
+        { name: "Alex P.", text: "Incredible attention to detail. The walls look perfectly smooth!" },
+        { name: "Samantha G.", text: "They patched up a huge hole in our ceiling and you can't even tell it was there." },
+        { name: "Mark H.", text: "Professional crew, showed up on time, and finished exactly when they said they would." },
+        { name: "Linda C.", text: "Very respectful of our home. They put down drop cloths everywhere and cleaned up thoroughly." },
+        { name: "Robert K.", text: "Fair pricing and top-notch quality. Steve is a master of his craft." },
+        { name: "Amanda J.", text: "We had our entire basement drywalled. The process was seamless and stress-free." },
+        { name: "Chris T.", text: "The texture matching was spot on. I'm amazed at how well it blends in." },
+        { name: "Megan W.", text: "Friendly, responsive, and clearly experienced. Highly recommended for any drywall needs." }
+      ];
+
+      btn.addEventListener('click', () => {
+        const shuffled = [...randomData].sort(() => 0.5 - Math.random());
+        reviewTexts.forEach((el, index) => {
+          if (shuffled[index]) {
+            el.textContent = `"${shuffled[index].text}"`;
+            reviewNames[index].textContent = shuffled[index].name;
+          }
+        });
+      });
+    }
+  </script>
 
   <!-- Service Areas -->
   <section class="py-16 bg-gray-50">
