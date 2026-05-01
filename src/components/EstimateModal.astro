@@ -290,7 +290,7 @@
         const res  = await fetch(url, {
           headers: { 'Accept-Language': 'en' }
         });
-        const data: Array<{ display_name: string }> = await res.json();
+        const data: Array<{ display_name: string; address?: Record<string, string> }> = await res.json();
 
         spinner.classList.add('hidden');
         suggestionBox.innerHTML = '';
@@ -298,6 +298,19 @@
         if (!data.length) { hideSuggestions(); return; }
 
         data.forEach(item => {
+          let cleanName = item.display_name;
+          if (item.address) {
+            const addr = item.address;
+            const street = [addr.house_number, addr.road].filter(Boolean).join(' ');
+            const loc = addr.city || addr.town || addr.village || addr.municipality || addr.hamlet;
+            const stateZip = [addr.state, addr.postcode].filter(Boolean).join(' ');
+            
+            const parts = [street, loc, stateZip].filter(Boolean);
+            if (parts.length > 0) {
+              cleanName = parts.join(', ');
+            }
+          }
+
           const li = document.createElement('li');
           li.role = 'option';
           li.className =
@@ -312,11 +325,11 @@
                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
              </svg>` +
-            `<span class="truncate">${item.display_name}</span>`;
+            `<span class="truncate">${cleanName}</span>`;
 
           li.addEventListener('mousedown', (e) => {
             e.preventDefault(); // prevent input blur firing first
-            pickSuggestion(item.display_name);
+            pickSuggestion(cleanName);
           });
 
           suggestionBox.appendChild(li);
