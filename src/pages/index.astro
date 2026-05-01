@@ -62,10 +62,10 @@ const allAreas = [
         id="hero-bg"
         src="/craftsman-drywall/images/hero-rainier.jpg" 
         alt="Peter Robbins photography" 
-        class="w-full h-full object-cover transition-opacity duration-300"
+        class="w-full h-full object-cover object-[center_65%] transition-opacity duration-300"
       />
       <!-- Overlay to ensure text readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-navy/75 via-navy/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/45 to-transparent"></div>
     </div>
 
     <!-- Toggle for Client Presentation -->
@@ -435,7 +435,7 @@ const allAreas = [
           heroBg.style.opacity = '0';
           setTimeout(() => {
             heroBg.src = '/craftsman-drywall/images/hero-olympia.jpg';
-            heroBg.classList.add('object-[center_35%]');
+            heroBg.classList.replace('object-[center_65%]', 'object-[center_35%]');
             heroBg.style.opacity = '1';
           }, 300);
         } else {
@@ -447,7 +447,7 @@ const allAreas = [
           heroBg.style.opacity = '0';
           setTimeout(() => {
             heroBg.src = '/craftsman-drywall/images/hero-rainier.jpg';
-            heroBg.classList.remove('object-[center_35%]');
+            heroBg.classList.replace('object-[center_35%]', 'object-[center_65%]');
             heroBg.style.opacity = '1';
           }, 300);
         }
