@@ -55,12 +55,22 @@ const allAreas = [
     <!-- Background Image -->
     <div class="absolute inset-0">
       <img 
+        id="hero-bg"
         src="/craftsman-drywall/images/hero-final.jpg" 
         alt="Peter Robbins photography" 
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover transition-opacity duration-300"
       />
       <!-- Overlay to ensure text readability -->
       <div class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent"></div>
+    </div>
+
+    <!-- Toggle for Client Presentation -->
+    <div class="absolute top-6 right-6 sm:top-8 sm:right-8 z-50 flex items-center gap-3 bg-navy/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 shadow-xl">
+      <span class="text-xs font-bold text-white/90 uppercase tracking-wider transition-colors duration-300">Drywall</span>
+      <button id="hero-photo-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-brand/50 transition-colors duration-300 focus:outline-none cursor-pointer">
+        <span id="hero-toggle-knob" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 translate-x-1"></span>
+      </button>
+      <span class="text-xs font-bold text-white/50 uppercase tracking-wider transition-colors duration-300">House</span>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
@@ -387,6 +397,50 @@ const allAreas = [
   </section>
 
   <script>
+    // Hero Photo Toggle
+    const heroBg = document.getElementById('hero-bg') as HTMLImageElement | null;
+    const heroToggle = document.getElementById('hero-photo-toggle');
+    const heroKnob = document.getElementById('hero-toggle-knob');
+    
+    if (heroBg && heroToggle && heroKnob) {
+      const label1 = heroToggle.previousElementSibling;
+      const label2 = heroToggle.nextElementSibling;
+      let isPhoto2 = false;
+      
+      // Preload image
+      const preload = new Image();
+      preload.src = '/craftsman-drywall/images/hero-olympia.jpg';
+
+      heroToggle.addEventListener('click', () => {
+        isPhoto2 = !isPhoto2;
+        
+        // UI Updates
+        if (isPhoto2) {
+          heroKnob.classList.replace('translate-x-1', 'translate-x-6');
+          heroToggle.classList.replace('bg-blue-brand/50', 'bg-blue-brand');
+          label1?.classList.replace('text-white/90', 'text-white/50');
+          label2?.classList.replace('text-white/50', 'text-white/90');
+          
+          heroBg.style.opacity = '0';
+          setTimeout(() => {
+            heroBg.src = '/craftsman-drywall/images/hero-olympia.jpg';
+            heroBg.style.opacity = '1';
+          }, 300);
+        } else {
+          heroKnob.classList.replace('translate-x-6', 'translate-x-1');
+          heroToggle.classList.replace('bg-blue-brand', 'bg-blue-brand/50');
+          label1?.classList.replace('text-white/50', 'text-white/90');
+          label2?.classList.replace('text-white/90', 'text-white/50');
+          
+          heroBg.style.opacity = '0';
+          setTimeout(() => {
+            heroBg.src = '/craftsman-drywall/images/hero-final.jpg';
+            heroBg.style.opacity = '1';
+          }, 300);
+        }
+      });
+    }
+
     const toggleBtn = document.getElementById('toggle-areas');
     const extendedAreas = document.getElementById('extended-areas');
 
