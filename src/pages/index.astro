@@ -66,11 +66,11 @@ const allAreas = [
 
     <!-- Toggle for Client Presentation -->
     <div class="absolute top-6 right-6 sm:top-8 sm:right-8 z-50 flex items-center gap-3 bg-navy/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 shadow-xl">
-      <span class="text-xs font-bold text-white/90 uppercase tracking-wider transition-colors duration-300">Drywall</span>
+      <span class="text-xs font-bold text-white/90 uppercase tracking-wider transition-colors duration-300">Photo 1</span>
       <button id="hero-photo-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-brand/50 transition-colors duration-300 focus:outline-none cursor-pointer">
         <span id="hero-toggle-knob" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 translate-x-1"></span>
       </button>
-      <span class="text-xs font-bold text-white/50 uppercase tracking-wider transition-colors duration-300">House</span>
+      <span class="text-xs font-bold text-white/50 uppercase tracking-wider transition-colors duration-300">Photo 2</span>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
@@ -424,6 +424,7 @@ const allAreas = [
           heroBg.style.opacity = '0';
           setTimeout(() => {
             heroBg.src = '/craftsman-drywall/images/hero-olympia.jpg';
+            heroBg.classList.add('object-[center_35%]');
             heroBg.style.opacity = '1';
           }, 300);
         } else {
@@ -435,6 +436,7 @@ const allAreas = [
           heroBg.style.opacity = '0';
           setTimeout(() => {
             heroBg.src = '/craftsman-drywall/images/hero-final.jpg';
+            heroBg.classList.remove('object-[center_35%]');
             heroBg.style.opacity = '1';
           }, 300);
         }
