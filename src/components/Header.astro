@@ -25,10 +25,17 @@ const currentPath = Astro.url.pathname;
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-1">
         {navLinks.map(link => {
-          const isHome = link.href === '/craftsman-drywall/' || link.href === '/craftsman-drywall';
-          const isActive = isHome 
-            ? currentPath === '/craftsman-drywall/' || currentPath === '/craftsman-drywall'
-            : currentPath.startsWith(link.href);
+          const isHome = link.label === 'Home';
+          const linkPath = link.href.split('/').filter(Boolean).pop() || '';
+          const currentSegments = currentPath.split('/').filter(Boolean);
+          const currentLastSegment = currentSegments.pop() || '';
+          
+          let isActive;
+          if (isHome) {
+            isActive = currentSegments.length === 0 && (currentLastSegment === '' || currentLastSegment === 'craftsman-drywall');
+          } else {
+            isActive = currentPath.includes(`/${linkPath}`);
+          }
             
           return (
             <a
@@ -80,10 +87,17 @@ const currentPath = Astro.url.pathname;
     <div id="mobile-menu" class="hidden md:hidden pb-4">
       <nav class="flex flex-col gap-1">
         {navLinks.map(link => {
-          const isHome = link.href === '/craftsman-drywall/' || link.href === '/craftsman-drywall';
-          const isActive = isHome 
-            ? currentPath === '/craftsman-drywall/' || currentPath === '/craftsman-drywall'
-            : currentPath.startsWith(link.href);
+          const isHome = link.label === 'Home';
+          const linkPath = link.href.split('/').filter(Boolean).pop() || '';
+          const currentSegments = currentPath.split('/').filter(Boolean);
+          const currentLastSegment = currentSegments.pop() || '';
+          
+          let isActive;
+          if (isHome) {
+            isActive = currentSegments.length === 0 && (currentLastSegment === '' || currentLastSegment === 'craftsman-drywall');
+          } else {
+            isActive = currentPath.includes(`/${linkPath}`);
+          }
             
           return (
             <a
