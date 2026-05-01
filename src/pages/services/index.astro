@@ -7,6 +7,7 @@ import CTABanner from '../../components/CTABanner.astro';
 const services = [
   {
     href: '/craftsman-drywall/services/drywall-installation',
+    image: '/craftsman-drywall/images/install.jpg',
     title: 'Drywall Installation',
     desc: 'Full-service drywall installation for new construction, additions, and complete room builds. Fire-resistant and moisture-resistant options available.',
     bullets: ['New construction & additions', 'Fire-resistant drywall', 'Moisture-resistant board', 'Level 5 smooth finish available'],
@@ -14,6 +15,7 @@ const services = [
   },
   {
     href: '/craftsman-drywall/services/drywall-repair',
+    image: '/craftsman-drywall/images/repair.jpeg',
     title: 'Drywall Repair',
     desc: 'Expert patching and repair for holes, cracks, water damage, and texture matching. We make repairs look invisible.',
     bullets: ['Hole & crack repair', 'Water damage restoration', 'Texture matching', 'Smooth seamless results'],
@@ -21,6 +23,7 @@ const services = [
   },
   {
     href: '/craftsman-drywall/services/remodeling',
+    image: '/craftsman-drywall/images/remodel.jpg',
     title: 'Remodeling',
     desc: 'Residential and commercial remodeling services. From basement finishing to full gut remodels, we handle the drywall from start to finish.',
     bullets: ['Basement finishing', 'Kitchen & bathroom remodels', 'Room additions', 'Commercial tenant improvements'],
@@ -28,6 +31,7 @@ const services = [
   },
   {
     href: '/craftsman-drywall/services/painting',
+    image: '/craftsman-drywall/images/paint.jpg',
     title: 'Painting',
     desc: 'Interior and exterior painting to complete your project. Professional prep, quality paint, and clean edges every time.',
     bullets: ['Interior painting', 'Exterior painting', 'Primer & prep included', 'Color consultation available'],
@@ -58,28 +62,36 @@ const services = [
         {services.map(service => (
           <a
             href={service.href}
-            class="group bg-white border border-gray-100 rounded-2xl p-8 hover:border-blue-brand hover:shadow-xl hover:shadow-blue-brand/10 transition-all duration-200"
+            class="group relative bg-white border border-gray-100 rounded-2xl p-8 hover:border-blue-brand hover:shadow-xl hover:shadow-blue-brand/10 transition-all duration-300 overflow-hidden flex flex-col"
           >
-            <div class="flex items-start gap-5">
-              <div class="w-14 h-14 bg-blue-light rounded-xl flex items-center justify-center text-blue-brand flex-shrink-0 group-hover:bg-blue-brand group-hover:text-white transition-colors duration-200">
+            <!-- Hover Image Background -->
+            <div class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <img src={service.image} alt={service.title} class="w-full h-full object-cover" />
+              <!-- Dark overlay for text readability -->
+              <div class="absolute inset-0 bg-navy/85"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 flex items-start gap-5 flex-1">
+              <div class="w-14 h-14 bg-blue-light rounded-xl flex items-center justify-center text-blue-brand flex-shrink-0 group-hover:bg-blue-brand group-hover:text-white transition-colors duration-300">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <Fragment set:html={service.icon} />
                 </svg>
               </div>
-              <div class="flex-1">
-                <h2 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h2>
-                <p class="text-gray-500 text-sm leading-relaxed mb-4">{service.desc}</p>
-                <ul class="space-y-1">
+              <div class="flex-1 flex flex-col h-full">
+                <h2 class="text-xl font-bold text-gray-900 group-hover:text-white transition-colors duration-300 mb-2">{service.title}</h2>
+                <p class="text-gray-500 group-hover:text-white/80 transition-colors duration-300 text-sm leading-relaxed mb-4">{service.desc}</p>
+                <ul class="space-y-1 mb-5">
                   {service.bullets.map(b => (
-                    <li class="flex items-center gap-2 text-sm text-gray-600">
-                      <svg class="w-4 h-4 text-blue-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li class="flex items-center gap-2 text-sm text-gray-600 group-hover:text-white/90 transition-colors duration-300">
+                      <svg class="w-4 h-4 text-blue-brand group-hover:text-blue-light flex-shrink-0 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                       </svg>
                       {b}
                     </li>
                   ))}
                 </ul>
-                <span class="mt-5 inline-flex items-center gap-1 text-blue-brand text-sm font-semibold group-hover:gap-2 transition-all">
+                <span class="mt-auto inline-flex items-center gap-1 text-blue-brand group-hover:text-blue-light text-sm font-semibold group-hover:gap-2 transition-all duration-300">
                   Learn more
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
