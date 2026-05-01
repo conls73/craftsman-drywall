@@ -77,6 +77,19 @@ const schema = {
   </head>
   <body class="font-sans bg-white text-gray-800 antialiased">
     <slot />
+    
+    <!-- Global Floating Action Button -->
+    <button
+      data-estimate
+      class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center gap-2.5 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none ring-4 ring-white/50 group"
+      aria-label="Request a Free Estimate"
+    >
+      <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+      </svg>
+      <span class="font-bold text-sm sm:text-base tracking-wide">Free Estimate</span>
+    </button>
+
     <EstimateModal />
   </body>
 </html>
