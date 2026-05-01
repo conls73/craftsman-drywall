@@ -24,17 +24,24 @@ const currentPath = Astro.url.pathname;
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-1">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150
-              ${currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                ? 'text-blue-brand bg-white/10'
-                : 'text-white/80 hover:text-white hover:bg-white/10'}`}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map(link => {
+          const isHome = link.href === '/craftsman-drywall/' || link.href === '/craftsman-drywall';
+          const isActive = isHome 
+            ? currentPath === '/craftsman-drywall/' || currentPath === '/craftsman-drywall'
+            : currentPath.startsWith(link.href);
+            
+          return (
+            <a
+              href={link.href}
+              class={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150
+                ${isActive
+                  ? 'text-blue-brand bg-white/10'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </nav>
 
       <!-- CTA -->
@@ -72,17 +79,24 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden pb-4">
       <nav class="flex flex-col gap-1">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`px-4 py-3 rounded-md text-sm font-medium transition-colors
-              ${currentPath === link.href
-                ? 'text-blue-brand bg-white/10'
-                : 'text-white/80 hover:text-white hover:bg-white/10'}`}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map(link => {
+          const isHome = link.href === '/craftsman-drywall/' || link.href === '/craftsman-drywall';
+          const isActive = isHome 
+            ? currentPath === '/craftsman-drywall/' || currentPath === '/craftsman-drywall'
+            : currentPath.startsWith(link.href);
+            
+          return (
+            <a
+              href={link.href}
+              class={`px-4 py-3 rounded-md text-sm font-medium transition-colors
+                ${isActive
+                  ? 'text-blue-brand bg-white/10'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'}`}
+            >
+              {link.label}
+            </a>
+          );
+        })}
         <a
           href="tel:3602822218"
           class="mt-2 px-4 py-3 text-white text-sm font-medium border border-white/20 rounded-md text-center"
