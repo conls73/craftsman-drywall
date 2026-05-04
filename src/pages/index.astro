@@ -35,6 +35,10 @@ const services = [
     desc: 'Interior and exterior painting with clean, professional results. The perfect finish to every drywall project.',
   },
 ];
+
+const allAreas = [
+  "Olympia, WA", "West Olympia, WA", "Downtown Olympia, WA", "Eastside Olympia, WA", "Northeast Olympia, WA", "Northwest Olympia, WA", "South Capitol, Olympia, WA", "Bigelow, Olympia, WA", "Upper Eastside, Olympia, WA", "Wildwood, Olympia, WA", "Cain Road, Olympia, WA", "Carlyon-North, Olympia, WA", "Governor Stevens, Olympia, WA", "East Bay, Olympia, WA", "West Bay Drive, Olympia, WA", "Cooper Point, Olympia, WA", "Goldcrest, Olympia, WA", "Ken Lake, Olympia, WA", "Holiday Hills, Olympia, WA", "Indian Creek, Olympia, WA", "Chambers Lake Basin, Olympia, WA", "Castlewood, Olympia, WA", "Nottingham, Olympia, WA", "Evergreen State College Area, Olympia, WA", "Squaxin Park Area, Olympia, WA", "Percival Landing Area, Olympia, WA", "Capitol Campus Area, Olympia, WA", "Black Lake, Olympia, WA", "Black Lake Heights, Olympia, WA", "Mud Bay, Olympia, WA", "Delphi, Olympia, WA", "South Bay, Olympia, WA", "Boston Harbor, Olympia, WA", "Gull Harbor, Olympia, WA", "Johnson Point, Olympia, WA", "Steamboat Island, Olympia, WA", "Griffin, Olympia, WA", "Summit Lake, Olympia, WA", "Scott Lake, Olympia, WA", "Pattison Lake, Olympia, WA", "Lacey, WA", "Downtown Lacey, WA", "North Lacey, WA", "South Lacey, WA", "Hawks Prairie, Lacey, WA", "Meridian Campus, Lacey, WA", "Jubilee, Lacey, WA", "Gateway, Lacey, WA", "Pleasant Glade, Lacey, WA", "Tanglewilde, Lacey, WA", "Thompson Place, Lacey, WA", "Mushroom Corner, Lacey, WA", "Woodland District, Lacey, WA", "College Street Area, Lacey, WA", "Sleater-Kinney Road Area, Lacey, WA", "Long Lake, Lacey, WA", "Hicks Lake, Lacey, WA", "Wonderwood, Lacey, WA", "The Meadows, Lacey, WA", "Union Mills, Lacey, WA", "Beachcrest, Lacey, WA", "Nisqually, Lacey, WA", "Nisqually Indian Community, WA", "Tumwater, WA", "Downtown Tumwater, WA", "Tumwater Hill, Tumwater, WA", "South Tumwater, WA", "East Tumwater, WA", "Bush Prairie, Tumwater, WA", "Black Hills, Tumwater, WA", "Trosper, Tumwater, WA", "Israel Road, Tumwater, WA", "Capitol Boulevard, Tumwater, WA", "Tumwater Airport Area, WA", "Brewery District, Tumwater, WA", "Palermo, Tumwater, WA", "Munn Lake, Tumwater, WA", "Deschutes River Area, Tumwater, WA", "Littlerock, WA", "Maytown, WA", "Grand Mound, WA", "Rochester, WA", "Gate, WA", "Independence, WA", "Bordeaux, WA", "Vail, WA", "Rainier, WA", "Tenino, WA", "Bucoda, WA", "Yelm, WA", "Downtown Yelm, WA", "South Yelm, WA", "North Yelm, WA", "Yelm Prairie, WA", "Clearwood, Yelm, WA", "Lake Lawrence, Yelm, WA", "Bald Hills, Yelm, WA", "Lawrence Lake Area, WA", "Skookumchuck, WA", "Offutt Lake, WA"
+];
 ---
 
 <BaseLayout
@@ -86,37 +90,25 @@ const services = [
     </div>
   </section>
 
-  <!-- Service Areas (Compact Version) -->
-  <section class="py-20 bg-gray-50 overflow-hidden">
+  <!-- Service Areas -->
+  <section class="py-24 bg-gray-50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row gap-12 items-center">
-        <div class="lg:w-1/3">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Service Areas</h2>
-          <p class="text-gray-500 mb-6">
-            We provide professional drywall services to residential and commercial clients throughout Thurston County and surrounding areas.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            {['Olympia', 'Lacey', 'Tumwater', 'Yelm', 'DuPont', 'Steilacoom', 'Rainier', 'Tenino', 'Rochester'].map(area => (
-              <span class="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-600 font-medium">
-                {area}
-              </span>
-            ))}
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Areas We Serve</h2>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+          We provide expert drywall services throughout Thurston County and surrounding regions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {allAreas.map(area => (
+          <div class="flex items-center gap-2 text-gray-600 hover:text-blue-brand transition-colors cursor-default">
+            <svg class="w-4 h-4 text-blue-brand/50" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-medium">{area}</span>
           </div>
-        </div>
-        <div class="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 gap-4">
-          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">Thurston County</h3>
-            <p class="text-sm text-gray-500">Olympia, Lacey, Tumwater, Yelm, Rainier, Tenino, Bucoda, Rochester</p>
-          </div>
-          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">Pierce County</h3>
-            <p class="text-sm text-gray-500">DuPont, Steilacoom, Roy</p>
-          </div>
-          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="font-bold text-gray-900 mb-2">Lewis County</h3>
-            <p class="text-sm text-gray-500">Centralia, Chehalis (Select Areas)</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
