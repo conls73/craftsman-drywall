@@ -103,9 +103,8 @@ const allAreas = [
   <style>
     .hero-full-mode #hero-text {
       position: absolute;
-      top: 50%;
+      bottom: 15%;
       left: 0;
-      transform: translateY(-50%);
       opacity: 1;
       z-index: 60;
       width: 100%;
@@ -129,18 +128,20 @@ const allAreas = [
       opacity: 0;
     }
     .hero-full-mode #hero-section {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     @media (min-width: 640px) {
         .hero-full-mode #hero-text {
             padding-left: 2rem;
+            bottom: 12%;
         }
     }
     @media (min-width: 1024px) {
         .hero-full-mode #hero-text {
             padding-left: 4rem;
+            bottom: 10%;
         }
     }
   </style>
