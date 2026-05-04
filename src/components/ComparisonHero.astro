@@ -3,18 +3,18 @@ const beforeSrc = '/craftsman-drywall/images/before.jpg';
 const afterSrc = '/craftsman-drywall/images/after.jpg';
 ---
 
-<div id="comparison-hero-root" class="relative w-full overflow-hidden bg-navy group">
-  <!-- Mode Toggle (Floating) -->
+<div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
+  <!-- Global Toggle -->
   <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[100]">
     <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
       <button 
-        id="hero-btn-slider" 
+        id="master-btn-slider" 
         class="px-10 py-3 text-[10px] font-black rounded-xl text-white/70 hover:text-white transition-all uppercase tracking-[0.2em]"
       >
         Slider
       </button>
       <button 
-        id="hero-btn-side-by-side" 
+        id="master-btn-side-by-side" 
         class="px-10 py-3 text-[10px] font-black rounded-xl bg-white text-navy shadow-xl transition-all uppercase tracking-[0.2em]"
       >
         Side by Side
@@ -22,109 +22,95 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     </div>
   </div>
 
-  <!-- Desktop Display Area -->
-  <div class="hidden lg:block relative w-full h-[85vh] min-h-[650px]">
+  <!-- Hero Content Area -->
+  <div class="relative w-full min-h-[85vh] lg:min-h-[750px] flex items-center">
     
-    <!-- SIDE BY SIDE MODE (Default) -->
-    <div id="hero-view-side-by-side" class="absolute inset-0 flex">
+    <!-- FULL HEADER SIDE-BY-SIDE MODE (Background) -->
+    <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover" alt="Before" />
         <div class="absolute top-10 left-10 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Before</div>
       </div>
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover" alt="After" />
-        <div class="absolute top-10 right-10 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">After</div>
+        <div class="absolute top-10 right-10 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-blue-brand/20">After</div>
       </div>
-      <!-- Center Divider Line -->
       <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-40"></div>
+      <!-- Left side dark gradient for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent z-20"></div>
     </div>
 
-    <!-- SLIDER MODE -->
-    <div id="hero-view-slider" class="hidden absolute inset-0">
-      <!-- After Image (Base) -->
-      <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" alt="After" />
-      
-      <!-- Before Image (Clipped Overlay) -->
-      <div id="hero-before-container" class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-10" style="clip-path: inset(0 50% 0 0);">
-        <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover" alt="Before" />
-      </div>
-
-      <!-- Wiping Label at bottom -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-[45] pointer-events-none">
-          <div class="relative flex items-center justify-center min-w-[180px] h-12 bg-navy/80 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center text-white text-[10px] font-black uppercase tracking-[0.4em]">After</div>
-              <div id="hero-label-wipe" class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[10px] font-black uppercase tracking-[0.4em]" style="clip-path: inset(0 50% 0 0);">Before</div>
+    <!-- MAIN GRID CONTAINER -->
+    <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full z-50 py-24 lg:py-40">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        <!-- Hero Text -->
+        <div id="hero-text-block" class="transition-all duration-700 max-w-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
+            Thurston County’s Premier Drywall Service
           </div>
-      </div>
-
-      <!-- Handle -->
-      <div id="hero-slider-handle" class="absolute top-0 bottom-0 w-1.5 bg-white/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,0,0,0.8)] cursor-ew-resize z-40" style="left: 50%;">
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white rounded-full shadow-[0_0_60px_rgba(37,99,235,0.6)] border-[6px] border-blue-brand flex items-center justify-center transition-all">
-              <svg class="w-8 h-8 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" /></svg>
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+            Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
+          </h1>
+          <p class="text-xl text-white/80 mb-10 leading-relaxed font-medium">
+            30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-5">
+            <a href="/craftsman-drywall/contact" class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-blue-brand/20 hover:-translate-y-1 text-center">
+              Get a Free Estimate
+            </a>
+            <a href="tel:3602822218" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg transition-all duration-300 backdrop-blur-md text-center">
+              (360) 282-2218
+            </a>
           </div>
-      </div>
-      <input type="range" id="hero-slider-range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50" />
-    </div>
-
-    <!-- SHARED OVERLAYS -->
-    <!-- Dark overlay for text readability - Left side always dark for copy -->
-    <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent z-20 pointer-events-none"></div>
-
-    <!-- Hero Copy -->
-    <div class="absolute inset-0 flex items-center z-30 px-16 pointer-events-none">
-      <div class="max-w-xl pointer-events-auto mt-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6">
-          Thurston County’s Premier Drywall Service
         </div>
-        <h1 class="text-6xl font-extrabold text-white leading-[1.1] mb-6">
-          Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
-        </h1>
-        <p class="text-xl text-white/80 mb-10 leading-relaxed font-medium">
-          30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
-        </p>
-        <div class="flex gap-5">
-          <a href="/craftsman-drywall/contact" class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-blue-brand/20 hover:-translate-y-1">
-            Get a Free Estimate
-          </a>
-          <a href="tel:3602822218" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg transition-all duration-300 backdrop-blur-md">
-            (360) 282-2218
-          </a>
+
+        <!-- SLIDER CARD MODE (Right Side) -->
+        <div id="hero-slider-card-col" class="relative opacity-0 translate-x-12 pointer-events-none transition-all duration-700 lg:block hidden">
+            <div class="relative group">
+                <div class="relative overflow-hidden bg-navy rounded-3xl shadow-2xl border border-white/10 aspect-square">
+                    <img src={afterSrc} class="w-full h-full object-cover select-none" alt="After" />
+                    <div id="hero-card-before-container" class="absolute inset-0 w-full h-full overflow-hidden select-none z-10" style="clip-path: inset(0 50% 0 0);">
+                        <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
+                    </div>
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[45]">
+                        <div class="relative flex items-center justify-center min-w-[140px] h-10 bg-navy/80 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
+                            <div class="absolute inset-0 flex items-center justify-center text-white text-[9px] font-black uppercase tracking-[0.3em]">After</div>
+                            <div id="hero-card-label-wipe" class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[9px] font-black uppercase tracking-[0.3em]" style="clip-path: inset(0 50% 0 0);">Before</div>
+                        </div>
+                    </div>
+                    <div id="hero-card-handle" class="absolute top-0 bottom-0 w-1 bg-white/40 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.6)] cursor-ew-resize z-40" style="left: 50%;">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-[0_0_50px_rgba(37,99,235,0.5)] border-4 border-blue-brand flex items-center justify-center transition-all">
+                            <svg class="w-6 h-6 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" /></svg>
+                        </div>
+                    </div>
+                    <input type="range" id="hero-card-range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50" />
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-blue-brand/20 rounded-3xl"></div>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Mobile Hero Layout (Stacked) -->
-  <div class="lg:hidden flex flex-col">
-    <div class="relative w-full h-[70vh] flex items-center px-6 overflow-hidden">
+  <!-- Mobile Stacked Layout (Always Side-by-Side style) -->
+  <div class="lg:hidden flex flex-col bg-navy">
+    <div class="relative w-full h-[65vh] flex items-center px-6 overflow-hidden">
       <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover" alt="After" />
       <div class="absolute inset-0 bg-navy/70 z-10"></div>
       <div class="relative z-20 max-w-lg pt-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-[10px] font-bold uppercase tracking-widest mb-6">
-          Thurston County’s Premier Drywall Service
-        </div>
-        <h1 class="text-4xl font-extrabold text-white leading-tight mb-4">
-          Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
-        </h1>
-        <p class="text-lg text-white/80 mb-8 leading-relaxed">
-          30+ years of flawless finishes. From installation to repair — we do it right.
-        </p>
-        <div class="flex flex-col gap-4">
-          <a href="/craftsman-drywall/contact" class="bg-blue-brand text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg uppercase tracking-widest text-sm">
-            Get a Free Estimate
-          </a>
-          <a href="tel:3602822218" class="text-white text-center font-bold uppercase tracking-widest text-sm">
-            Call (360) 282-2218
-          </a>
-        </div>
+        <h1 class="text-4xl font-extrabold text-white leading-tight mb-4">Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span></h1>
+        <p class="text-lg text-white/80 mb-8 leading-relaxed">30+ years of flawless finishes. From installation to repair — we do it right.</p>
+        <a href="/craftsman-drywall/contact" class="inline-block bg-blue-brand text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg w-full">Get a Free Estimate</a>
       </div>
     </div>
-    <div class="flex flex-col gap-2 p-4 bg-navy">
-      <div class="relative aspect-video rounded-xl overflow-hidden">
+    <div class="flex flex-col gap-2 p-4">
+      <div class="relative aspect-video rounded-xl overflow-hidden border border-white/10">
         <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
         <div class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">Before</div>
       </div>
-      <div class="relative aspect-video rounded-xl overflow-hidden">
+      <div class="relative aspect-video rounded-xl overflow-hidden border border-white/10">
         <img src={afterSrc} class="w-full h-full object-cover" alt="After" />
         <div class="absolute top-4 left-4 bg-blue-brand text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">After</div>
       </div>
@@ -132,17 +118,31 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
   </div>
 </div>
 
+<style>
+  .hero-state-slider #bg-side-by-side {
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .hero-state-slider #hero-slider-card-col {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .hero-state-side-by-side #bg-side-by-side {
+    opacity: 1;
+  }
+</style>
+
 <script>
-  const initHeroComparison = () => {
-    const btnSlider = document.getElementById('hero-btn-slider');
-    const btnSideBySide = document.getElementById('hero-btn-side-by-side');
-    const viewSlider = document.getElementById('hero-view-slider');
-    const viewSideBySide = document.getElementById('hero-view-side-by-side');
+  const initMasterHero = () => {
+    const root = document.getElementById('master-hero-root');
+    const btnSlider = document.getElementById('master-btn-slider');
+    const btnSideBySide = document.getElementById('master-btn-side-by-side');
     
-    const rangeInput = document.getElementById('hero-slider-range') as HTMLInputElement;
-    const beforeContainer = document.getElementById('hero-before-container');
-    const labelWipe = document.getElementById('hero-label-wipe');
-    const handle = document.getElementById('hero-slider-handle');
+    const rangeInput = document.getElementById('hero-card-range') as HTMLInputElement;
+    const beforeContainer = document.getElementById('hero-card-before-container');
+    const labelWipe = document.getElementById('hero-card-label-wipe');
+    const handle = document.getElementById('hero-card-handle');
 
     const updateSlider = (val: string) => {
       const percentage = 100 - parseInt(val);
@@ -157,18 +157,18 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     }
 
     const setMode = (mode: 'slider' | 'side-by-side') => {
-      if (!btnSlider || !btnSideBySide || !viewSlider || !viewSideBySide) return;
+      if (!root || !btnSlider || !btnSideBySide) return;
 
       if (mode === 'slider') {
-        viewSlider.classList.remove('hidden');
-        viewSideBySide.classList.add('hidden');
+        root.classList.add('hero-state-slider');
+        root.classList.remove('hero-state-side-by-side');
         btnSlider.classList.add('bg-white', 'text-navy');
         btnSlider.classList.remove('text-white/70', 'hover:text-white');
         btnSideBySide.classList.remove('bg-white', 'text-navy');
         btnSideBySide.classList.add('text-white/70', 'hover:text-white');
       } else {
-        viewSlider.classList.add('hidden');
-        viewSideBySide.classList.remove('hidden');
+        root.classList.remove('hero-state-slider');
+        root.classList.add('hero-state-side-by-side');
         btnSideBySide.classList.add('bg-white', 'text-navy');
         btnSideBySide.classList.remove('text-white/70', 'hover:text-white');
         btnSlider.classList.remove('bg-white', 'text-navy');
@@ -180,6 +180,6 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     btnSideBySide?.addEventListener('click', () => setMode('side-by-side'));
   };
 
-  document.addEventListener('DOMContentLoaded', initHeroComparison);
-  document.addEventListener('astro:page-load', initHeroComparison);
+  document.addEventListener('DOMContentLoaded', initMasterHero);
+  document.addEventListener('astro:page-load', initMasterHero);
 </script>
