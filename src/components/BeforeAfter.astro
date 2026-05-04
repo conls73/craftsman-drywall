@@ -9,64 +9,57 @@ interface Props {
 const { className = "" } = Astro.props;
 ---
 
-<div class={`before-after-component w-full relative overflow-hidden bg-navy group ${className}`}>
-  <!-- Dynamic Background (Blurred) -->
-  <div class="absolute inset-0 z-0 opacity-40 blur-3xl scale-110">
-    <img src={afterSrc} class="w-full h-full object-cover" alt="" />
-  </div>
+<div class={`before-after-component relative overflow-hidden bg-navy rounded-3xl shadow-2xl ${className}`}>
+  <!-- Slider View -->
+  <div id="view-slider" class="relative w-full aspect-[4/5] md:aspect-square overflow-hidden group flex items-center justify-center">
+    <!-- Base image (After) -->
+    <img 
+        src={afterSrc} 
+        class="w-full h-full object-cover select-none pointer-events-none" 
+        alt="After Remodel" 
+    />
 
-  <!-- Slider View (NO CROP) -->
-  <div id="view-slider" class="relative w-full h-[60vh] md:h-[80vh] lg:h-[90vh] overflow-hidden group flex items-center justify-center">
-    <div class="relative w-full h-full max-w-7xl mx-auto flex items-center justify-center">
-        <!-- Base image (After) -->
+    <!-- Overlay image (Before) -->
+    <div 
+        id="before-img-container" 
+        class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-10"
+        style="clip-path: inset(0 50% 0 0);"
+    >
         <img 
-            src={afterSrc} 
-            class="max-w-full max-h-full object-contain select-none pointer-events-none" 
-            alt="After Remodel" 
+            src={beforeSrc} 
+            class="w-full h-full object-cover" 
+            alt="Before Remodel" 
         />
-
-        <!-- Overlay image (Before) -->
-        <div 
-            id="before-img-container" 
-            class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-10 flex items-center justify-center"
-            style="clip-path: inset(0 50% 0 0);"
-        >
-            <img 
-                src={beforeSrc} 
-                class="max-w-full max-h-full object-contain" 
-                alt="Before Remodel" 
-            />
-        </div>
-        
-        <!-- Wiping Label at the bottom -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-[45] pointer-events-none">
-            <div class="relative flex items-center justify-center min-w-[200px] h-14 bg-navy/40 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
-                <!-- Static "After" Label -->
-                <div class="absolute inset-0 flex items-center justify-center text-white text-xs font-black uppercase tracking-[0.4em] select-none">
-                    After
-                </div>
-                <!-- Wiping "Before" Label -->
-                <div 
-                    id="before-label-wipe"
-                    class="absolute inset-0 flex items-center justify-center bg-white text-navy text-xs font-black uppercase tracking-[0.4em] select-none transition-none"
-                    style="clip-path: inset(0 50% 0 0);"
-                >
-                    Before
-                </div>
+    </div>
+    
+    <!-- Wiping Label at the bottom -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[45] pointer-events-none">
+        <div class="relative flex items-center justify-center min-w-[160px] h-11 bg-navy/60 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
+            <!-- Static "After" Label -->
+            <div class="absolute inset-0 flex items-center justify-center text-white text-[10px] font-black uppercase tracking-[0.3em] select-none">
+                After
+            </div>
+            <!-- Wiping "Before" Label -->
+            <div 
+                id="before-label-wipe"
+                class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[10px] font-black uppercase tracking-[0.3em] select-none transition-none"
+                style="clip-path: inset(0 50% 0 0);"
+            >
+                Before
             </div>
         </div>
+    </div>
 
-        <!-- Vertical Drag Handle -->
-        <div 
-            id="slider-handle" 
-            class="absolute top-0 bottom-0 w-1 bg-white/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,0,0,0.8)] cursor-ew-resize z-40"
-            style="left: 50%;"
-        >
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white rounded-full shadow-[0_0_60px_rgba(37,99,235,0.6)] border-[5px] border-blue-brand flex items-center justify-center transition-all hover:scale-110 active:scale-90">
-                <svg class="w-7 h-7 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
-                </svg>
-            </div>
+    <!-- Vertical Drag Handle -->
+    <div 
+        id="slider-handle" 
+        class="absolute top-0 bottom-0 w-1 bg-white/40 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.6)] cursor-ew-resize z-40"
+        style="left: 50%;"
+    >
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-[0_0_50px_rgba(37,99,235,0.5)] border-4 border-blue-brand flex items-center justify-center transition-all hover:scale-110 active:scale-90">
+            <svg class="w-6 h-6 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
+            </svg>
         </div>
     </div>
 
@@ -79,13 +72,6 @@ const { className = "" } = Astro.props;
         value="50" 
         class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50"
     />
-  </div>
-
-  <!-- Slot for Content Overlay -->
-  <div id="hero-content-slot" class="absolute inset-0 pointer-events-none z-30 flex items-center bg-gradient-to-r from-navy/90 via-navy/40 to-transparent">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
-        <slot />
-    </div>
   </div>
 </div>
 
@@ -102,7 +88,6 @@ const { className = "" } = Astro.props;
         beforeImgContainer.style.clipPath = `inset(0 ${percentage}% 0 0)`;
       }
       if (beforeLabelWipe) {
-        // The label wipe should match the slider position
         beforeLabelWipe.style.clipPath = `inset(0 ${percentage}% 0 0)`;
       }
       if (sliderHandle) {

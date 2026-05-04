@@ -49,38 +49,56 @@ const allAreas = [
   <Header />
 
   <!-- Hero -->
-  <BeforeAfter>
-    <div class="max-w-3xl pointer-events-auto py-40">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-[10px] font-black uppercase tracking-[0.2em] mb-8 backdrop-blur-md">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-brand opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-brand"></span>
-        </span>
-        Thurston County's Premier Drywall Service
-      </div>
-      <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black text-white leading-[1] mb-8 drop-shadow-2xl">
-        Olympia's Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
-      </h1>
-      <p class="text-xl text-white/90 mb-12 leading-relaxed max-w-xl font-bold drop-shadow-lg">
-        30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-6">
-        <a
-          href="/craftsman-drywall/contact"
-          data-estimate
-          class="bg-blue-brand hover:bg-blue-dark text-white font-black px-12 py-5 rounded-2xl text-lg transition-all duration-300 text-center shadow-[0_20px_50px_rgba(37,99,235,0.4)] hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(37,99,235,0.6)] uppercase tracking-widest"
-        >
-          Get a Free Estimate
-        </a>
-        <a
-          href="tel:3602822218"
-          class="bg-navy/40 border-2 border-white/20 text-white hover:bg-white/10 font-black px-12 py-5 rounded-2xl text-lg transition-all duration-300 text-center backdrop-blur-xl uppercase tracking-widest"
-        >
-          (360) 282-2218
-        </a>
+  <section class="relative bg-navy overflow-hidden py-24 lg:py-40 flex items-center">
+    <!-- Subtle Background Pattern/Gradient -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-brand/20 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-blue-brand/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/10 border border-blue-brand/20 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-brand opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-brand"></span>
+            </span>
+            Thurston County's Premier Drywall Service
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+            Olympia's Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
+          </h1>
+          <p class="text-xl text-white/80 mb-10 leading-relaxed max-w-xl font-medium">
+            30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-5">
+            <a
+              href="/craftsman-drywall/contact"
+              data-estimate
+              class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg transition-all duration-300 text-center shadow-2xl shadow-blue-brand/30 hover:-translate-y-1"
+            >
+              Get a Free Estimate
+            </a>
+            <a
+              href="tel:3602822218"
+              class="bg-white/5 border border-white/20 text-white hover:bg-white/10 font-semibold px-10 py-5 rounded-xl text-lg transition-all duration-300 text-center backdrop-blur-md"
+            >
+              (360) 282-2218
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <BeforeAfter className="rotate-1 hover:rotate-0 transition-transform duration-500" />
+          
+          <!-- Decorative element behind the slider -->
+          <div class="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-blue-brand/20 rounded-2xl"></div>
+          <div class="absolute -z-10 -bottom-6 -left-6 w-full h-full border-2 border-white/10 rounded-2xl"></div>
+        </div>
       </div>
     </div>
-  </BeforeAfter>
+  </section>
 
   <!-- Services -->
   <section class="py-20 bg-white">
