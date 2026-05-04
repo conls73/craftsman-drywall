@@ -22,8 +22,26 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <!-- Desktop Nav Row -->
-      <div class="hidden md:flex flex-col items-center gap-4 w-full">
-        <nav class="flex items-center justify-center gap-2 bg-white/5 backdrop-blur-sm px-2 py-1.5 rounded-full border border-white/10">
+      <div class="hidden md:grid grid-cols-3 items-center w-full">
+        <!-- Left Side CTAs -->
+        <div class="flex items-center gap-6">
+          <a
+            href="tel:3602822218"
+            class="text-white/70 text-sm font-bold hover:text-white transition-colors"
+          >
+            (360) 282-2218
+          </a>
+          <a
+            href="/craftsman-drywall/contact"
+            data-estimate
+            class="bg-blue-brand hover:bg-blue-dark text-white text-xs font-black px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-blue-brand/20 uppercase tracking-widest"
+          >
+            Estimate
+          </a>
+        </div>
+
+        <!-- Centered Nav -->
+        <nav class="flex items-center justify-center gap-1 bg-white/5 backdrop-blur-sm px-1.5 py-1.5 rounded-full border border-white/10">
           {navLinks.map(link => {
             const isHome = link.label === 'Home';
             const linkSegments = link.href.split('/').filter(Boolean);
@@ -41,16 +59,21 @@ const currentPath = Astro.url.pathname;
             return (
               <a
                 href={link.href}
-                class={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200
+                class={`px-6 py-2 rounded-full text-xs font-black transition-all duration-200 uppercase tracking-widest
                   ${isActive
                     ? 'text-white bg-blue-brand shadow-lg shadow-blue-brand/20'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'}`}
+                    : 'text-white/60 hover:text-white hover:bg-white/10'}`}
               >
                 {link.label}
               </a>
             );
           })}
         </nav>
+
+        <!-- Right Side Spacer -->
+        <div class="flex justify-end">
+          <!-- Placeholder to keep nav centered -->
+        </div>
       </div>
 
       <!-- Mobile menu button -->
