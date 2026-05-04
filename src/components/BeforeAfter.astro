@@ -9,99 +9,66 @@ interface Props {
 const { className = "" } = Astro.props;
 ---
 
-<div class={`before-after-container flex flex-col gap-4 ${className}`}>
+<div class={`before-after-wrapper flex flex-col gap-6 ${className}`}>
   <!-- Toggle Controls -->
-  <div class="flex justify-center">
-    <div class="inline-flex bg-white/5 backdrop-blur-xl rounded-xl p-1 border border-white/10 shadow-lg">
+  <div class="flex justify-center relative z-[60]">
+    <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
       <button 
         id="btn-slider" 
-        class="px-6 py-2 text-[10px] font-black rounded-lg bg-white text-navy shadow-md transition-all uppercase tracking-[0.2em]"
+        class="px-10 py-3 text-xs font-black rounded-xl bg-white text-navy shadow-xl transition-all uppercase tracking-[0.2em]"
       >
         Slider
       </button>
       <button 
         id="btn-side-by-side" 
-        class="px-6 py-2 text-[10px] font-black rounded-lg text-white/60 hover:text-white transition-all uppercase tracking-[0.2em]"
+        class="px-10 py-3 text-xs font-black rounded-xl text-white/70 hover:text-white transition-all uppercase tracking-[0.2em]"
       >
         Side by Side
       </button>
     </div>
   </div>
 
-  <div class="before-after-card relative overflow-hidden bg-navy rounded-3xl shadow-2xl">
-    <!-- Slider View -->
+  <!-- Main Display Area -->
+  <div id="display-area" class="before-after-card relative overflow-hidden bg-navy/20 rounded-3xl transition-all duration-700 ease-in-out border border-white/5">
+    
+    <!-- Slider View (2-Column Mode or Container Mode) -->
     <div id="view-slider" class="relative w-full aspect-[4/5] md:aspect-square overflow-hidden group flex items-center justify-center">
-      <!-- Base image (After) -->
-      <img 
-          src={afterSrc} 
-          class="w-full h-full object-cover select-none pointer-events-none" 
-          alt="After Remodel" 
-      />
-
-      <!-- Overlay image (Before) -->
-      <div 
-          id="before-img-container" 
-          class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-10"
-          style="clip-path: inset(0 50% 0 0);"
-      >
-          <img 
-              src={beforeSrc} 
-              class="w-full h-full object-cover" 
-              alt="Before Remodel" 
-          />
+      <img src={afterSrc} class="w-full h-full object-cover select-none pointer-events-none" alt="After" />
+      <div id="before-img-container" class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-10" style="clip-path: inset(0 50% 0 0);">
+          <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
       </div>
       
-      <!-- Wiping Label at the bottom -->
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[45] pointer-events-none">
-          <div class="relative flex items-center justify-center min-w-[140px] h-10 bg-navy/60 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center text-white text-[9px] font-black uppercase tracking-[0.3em] select-none">
-                  After
-              </div>
-              <div 
-                  id="before-label-wipe"
-                  class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[9px] font-black uppercase tracking-[0.3em] select-none transition-none"
-                  style="clip-path: inset(0 50% 0 0);"
-              >
-                  Before
-              </div>
+      <!-- Wiping Label -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-[45] pointer-events-none">
+          <div class="relative flex items-center justify-center min-w-[160px] h-12 bg-navy/80 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center text-white text-[10px] font-black uppercase tracking-[0.4em] select-none">After</div>
+              <div id="before-label-wipe" class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[10px] font-black uppercase tracking-[0.4em] select-none" style="clip-path: inset(0 50% 0 0);">Before</div>
           </div>
       </div>
 
-      <!-- Vertical Drag Handle -->
-      <div 
-          id="slider-handle" 
-          class="absolute top-0 bottom-0 w-1 bg-white/40 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.6)] cursor-ew-resize z-40"
-          style="left: 50%;"
-      >
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-[0_0_50px_rgba(37,99,235,0.5)] border-4 border-blue-brand flex items-center justify-center transition-all hover:scale-110 active:scale-90">
-              <svg class="w-5 h-5 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
-              </svg>
+      <!-- Handle -->
+      <div id="slider-handle" class="absolute top-0 bottom-0 w-1.5 bg-white/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,0,0,0.8)] cursor-ew-resize z-40" style="left: 50%;">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-white rounded-full shadow-[0_0_60px_rgba(37,99,235,0.6)] border-[6px] border-blue-brand flex items-center justify-center transition-all hover:scale-110 active:scale-90">
+              <svg class="w-8 h-8 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" /></svg>
           </div>
       </div>
-
-      <!-- Invisible range input -->
-      <input 
-          type="range" 
-          id="slider-range-hidden" 
-          min="0" 
-          max="100" 
-          value="50" 
-          class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50"
-      />
+      <input type="range" id="slider-range-hidden" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50" />
     </div>
 
-    <!-- Side by Side View (Uncropped) -->
-    <div id="view-side-by-side" class="hidden grid-cols-2 gap-px bg-white/5 p-px">
-      <div class="relative w-full aspect-[4/5] bg-navy overflow-hidden">
-        <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md text-navy text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">Before</div>
-        <img src={beforeSrc} class="w-full h-full object-contain" alt="Before" />
-      </div>
-      <div class="relative w-full aspect-[4/5] bg-navy overflow-hidden">
-        <div class="absolute top-4 right-4 z-20 bg-blue-brand text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-[0.2em]">After</div>
-        <img src={afterSrc} class="w-full h-full object-contain" alt="After" />
+    <!-- Side by Side View (FULL SCREEN MODE) -->
+    <div id="view-side-by-side" class="hidden absolute inset-0 z-50 bg-navy">
+      <div class="grid grid-cols-2 w-full h-full gap-px bg-white/10">
+        <div class="relative w-full h-full flex items-center justify-center p-8">
+            <div class="absolute top-10 left-10 z-20 bg-white text-navy text-xs font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-gray-200">Before</div>
+            <img src={beforeSrc} class="max-w-full max-h-full object-contain" alt="Before" />
+        </div>
+        <div class="relative w-full h-full flex items-center justify-center p-8">
+            <div class="absolute top-10 right-10 z-20 bg-blue-brand text-white text-xs font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-white/10">After</div>
+            <img src={afterSrc} class="max-w-full max-h-full object-contain" alt="After" />
+        </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -114,21 +81,13 @@ const { className = "" } = Astro.props;
     
     const updateSlider = (val: string) => {
       const percentage = 100 - parseInt(val);
-      if (beforeImgContainer) {
-        beforeImgContainer.style.clipPath = `inset(0 ${percentage}% 0 0)`;
-      }
-      if (beforeLabelWipe) {
-        beforeLabelWipe.style.clipPath = `inset(0 ${percentage}% 0 0)`;
-      }
-      if (sliderHandle) {
-        sliderHandle.style.left = `${val}%`;
-      }
+      if (beforeImgContainer) beforeImgContainer.style.clipPath = `inset(0 ${percentage}% 0 0)`;
+      if (beforeLabelWipe) beforeLabelWipe.style.clipPath = `inset(0 ${percentage}% 0 0)`;
+      if (sliderHandle) sliderHandle.style.left = `${val}%`;
     };
 
     if (rangeInput) {
-      rangeInput.addEventListener('input', (e) => {
-        updateSlider((e.target as HTMLInputElement).value);
-      });
+      rangeInput.addEventListener('input', (e) => updateSlider((e.target as HTMLInputElement).value));
       updateSlider(rangeInput.value);
     }
 
@@ -136,32 +95,38 @@ const { className = "" } = Astro.props;
     const btnSideBySide = document.getElementById('btn-side-by-side');
     const viewSlider = document.getElementById('view-slider');
     const viewSideBySide = document.getElementById('view-side-by-side');
+    const displayArea = document.getElementById('display-area');
 
-    if (btnSlider && btnSideBySide && viewSlider && viewSideBySide) {
-      btnSlider.addEventListener('click', () => {
+    const setMode = (mode: 'slider' | 'side-by-side') => {
+      if (!btnSlider || !btnSideBySide || !viewSlider || !viewSideBySide || !displayArea) return;
+
+      if (mode === 'slider') {
         viewSlider.classList.remove('hidden');
         viewSideBySide.classList.add('hidden');
-        viewSideBySide.classList.remove('grid');
-
-        btnSlider.classList.add('bg-white', 'text-navy');
-        btnSlider.classList.remove('text-white/60', 'hover:text-white');
         
+        btnSlider.classList.add('bg-white', 'text-navy');
+        btnSlider.classList.remove('text-white/70', 'hover:text-white');
         btnSideBySide.classList.remove('bg-white', 'text-navy');
-        btnSideBySide.classList.add('text-white/60', 'hover:text-white');
-      });
-
-      btnSideBySide.addEventListener('click', () => {
+        btnSideBySide.classList.add('text-white/70', 'hover:text-white');
+        
+        // Dispatch event to parent to restore layout
+        window.dispatchEvent(new CustomEvent('hero-mode-change', { detail: { mode: 'slider' } }));
+      } else {
         viewSlider.classList.add('hidden');
         viewSideBySide.classList.remove('hidden');
-        viewSideBySide.classList.add('grid');
-
-        btnSideBySide.classList.add('bg-white', 'text-navy');
-        btnSideBySide.classList.remove('text-white/60', 'hover:text-white');
         
+        btnSideBySide.classList.add('bg-white', 'text-navy');
+        btnSideBySide.classList.remove('text-white/70', 'hover:text-white');
         btnSlider.classList.remove('bg-white', 'text-navy');
-        btnSlider.classList.add('text-white/60', 'hover:text-white');
-      });
-    }
+        btnSlider.classList.add('text-white/70', 'hover:text-white');
+
+        // Dispatch event to parent to expand layout
+        window.dispatchEvent(new CustomEvent('hero-mode-change', { detail: { mode: 'side-by-side' } }));
+      }
+    };
+
+    btnSlider?.addEventListener('click', () => setMode('slider'));
+    btnSideBySide?.addEventListener('click', () => setMode('side-by-side'));
   };
 
   document.addEventListener('DOMContentLoaded', initBeforeAfter);
