@@ -3,6 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTABanner from '../components/CTABanner.astro';
+
+// Generate the 36 photos list
+const galleryItems = Array.from({ length: 36 }, (_, i) => {
+  const num = i + 1;
+  // Define some variety for the bento grid
+  let gridClass = 'md:col-span-1 md:row-span-1';
+  if (num % 7 === 1) gridClass = 'md:col-span-2 md:row-span-2';
+  else if (num % 7 === 3) gridClass = 'md:col-span-1 md:row-span-2';
+  else if (num % 7 === 5) gridClass = 'md:col-span-2 md:row-span-1';
+  
+  return {
+    src: `photo-${num}.jpg`,
+    class: gridClass
+  };
+});
 ---
 
 <BaseLayout
@@ -28,35 +43,14 @@ import CTABanner from '../components/CTABanner.astro';
       
       <!-- Bento Grid Gallery -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
-        {[
-          { src: 'Drywall-Ceiling-Repair.jpg', class: 'md:col-span-2 md:row-span-2' },
-          { src: 'Drywall-Hole-Repair-scaled.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Paint-Repair.jpg', class: 'md:col-span-1 md:row-span-2' },
-          { src: 'Drywall-Service.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service2.jpg', class: 'md:col-span-2 md:row-span-1' },
-          { src: 'Drywall-Service3.jpg', class: 'md:col-span-1 md:row-span-2' },
-          { src: 'Drywall-Service4.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service5.jpg', class: 'md:col-span-2 md:row-span-2' },
-          { src: 'Drywall-Service6.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service7.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service8.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service9.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service10.jpg', class: 'md:col-span-2 md:row-span-1' },
-          { src: 'Drywall-Service11.jpg', class: 'md:col-span-1 md:row-span-2' },
-          { src: 'Drywall-Service12.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service13.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service14.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Service15.jpg', class: 'md:col-span-2 md:row-span-1' },
-          { src: 'Drywall-Service16.jpg', class: 'md:col-span-1 md:row-span-1' },
-          { src: 'Drywall-Services-scaled.jpg', class: 'md:col-span-1 md:row-span-1' }
-        ].map((item, i) => (
+        {galleryItems.map((item, i) => (
           <div 
             class={`group relative overflow-hidden rounded-3xl border border-gray-100 shadow-sm cursor-pointer ${item.class}`}
             onclick={`openLightbox('/craftsman-drywall/images/gallery/${item.src}')`}
           >
             <img 
               src={`/craftsman-drywall/images/gallery/${item.src}`} 
-              alt="Professional drywall service" 
+              alt={`Professional drywall project ${i + 1}`} 
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
             />
