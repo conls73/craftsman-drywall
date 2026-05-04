@@ -93,7 +93,8 @@ const allAreas = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map(service => (
-          <div
+          <a
+            href={service.href}
             class="group relative bg-white border border-gray-100 rounded-2xl p-7 hover:border-blue-brand hover:shadow-xl hover:shadow-blue-brand/10 transition-all duration-300 overflow-hidden flex flex-col"
           >
             <!-- Hover Image Background -->
@@ -110,8 +111,14 @@ const allAreas = [
               </div>
               <h3 class="text-lg font-bold text-gray-900 sm:group-hover:text-white transition-colors duration-300 mb-2">{service.title}</h3>
               <p class="text-gray-500 sm:group-hover:text-white/80 transition-colors duration-300 text-sm leading-relaxed">{service.desc}</p>
+              <span class="mt-auto pt-4 inline-flex items-center gap-1 text-blue-brand sm:group-hover:text-blue-light text-sm font-semibold sm:group-hover:gap-2 transition-all duration-300">
+                Learn more
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
