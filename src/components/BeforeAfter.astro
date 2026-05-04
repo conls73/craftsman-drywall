@@ -1,21 +1,27 @@
 ---
 const beforeSrc = '/craftsman-drywall/images/before.jpg';
 const afterSrc = '/craftsman-drywall/images/after.jpg';
+
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
 ---
 
-<div class="before-after-component w-full mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 p-4">
+<div class={`before-after-component w-full mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 ${className}`}>
   <!-- Toggle Controls -->
-  <div class="flex justify-center mb-6">
-    <div class="inline-flex bg-gray-100 rounded-lg p-1">
+  <div class="flex justify-center p-4 bg-gray-50/50 border-b border-gray-100">
+    <div class="inline-flex bg-gray-200/50 rounded-xl p-1 backdrop-blur-sm">
       <button 
         id="btn-slider" 
-        class="px-5 py-2 text-sm font-bold rounded-md bg-white text-navy shadow-sm transition-all"
+        class="px-6 py-2 text-xs font-bold rounded-lg bg-white text-navy shadow-sm transition-all uppercase tracking-wider"
       >
         Slider
       </button>
       <button 
         id="btn-side-by-side" 
-        class="px-5 py-2 text-sm font-bold rounded-md text-gray-500 hover:text-navy transition-all"
+        class="px-6 py-2 text-xs font-bold rounded-lg text-gray-500 hover:text-navy transition-all uppercase tracking-wider"
       >
         Side by Side
       </button>
@@ -23,100 +29,92 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
   </div>
 
   <!-- Slider View -->
-  <div id="view-slider" class="relative w-full rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
-    <div class="relative w-full h-full max-h-[80vh] flex items-center justify-center">
-        <!-- Base image (After) -->
-        <img 
-            src={afterSrc} 
-            class="block w-full max-h-[80vh] object-contain" 
-            alt="After Remodel" 
-        />
-        <div class="absolute top-4 right-4 bg-navy text-white text-sm font-bold px-3 py-1 rounded shadow-md z-10">After</div>
+  <div id="view-slider" class="relative w-full aspect-video md:aspect-[21/9] lg:aspect-[21/9] overflow-hidden bg-navy group">
+    <!-- Base image (After) -->
+    <img 
+        src={afterSrc} 
+        class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" 
+        alt="After Remodel" 
+    />
+    <div class="absolute top-6 right-6 bg-navy/80 backdrop-blur text-white text-xs font-black px-4 py-2 rounded-full shadow-xl z-10 border border-white/10 uppercase tracking-widest">After</div>
 
-        <!-- Overlay image (Before) -->
-        <img 
-            src={beforeSrc} 
-            id="before-img-clip" 
-            class="absolute top-0 left-1/2 -translate-x-1/2 block w-full h-full object-contain" 
-            style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);" 
-            alt="Before Remodel" 
-        />
-        <!-- We use top-4 left-4 for Before, but if the image is centered with object-contain, the label might be over whitespace. 
-             It's fine, it will stay in the container's corner -->
-        <div class="absolute top-4 left-4 bg-white text-navy text-sm font-bold px-3 py-1 rounded shadow-md z-10 border border-gray-200">Before</div>
-        
-        <!-- Slider Input -->
-        <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-center items-center">
-            <input 
-                type="range" 
-                id="slider-input" 
-                min="0" 
-                max="100" 
-                value="50" 
-                class="w-full max-w-2xl h-3 bg-white/70 backdrop-blur rounded-lg appearance-none cursor-pointer border border-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-brand"
-                style="
-                    /* Minimal styling for range input */
-                    -webkit-appearance: none;
-                "
-            />
-            <style>
-                #slider-input::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    appearance: none;
-                    width: 24px;
-                    height: 24px;
-                    background: #2563EB; /* blue-brand */
-                    border-radius: 50%;
-                    cursor: pointer;
-                    border: 3px solid white;
-                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-                }
-                #slider-input::-moz-range-thumb {
-                    width: 24px;
-                    height: 24px;
-                    background: #2563EB;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    border: 3px solid white;
-                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-                }
-            </style>
-        </div>
-        
-        <!-- Vertical separator line -->
-        <div 
-            id="slider-line" 
-            class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] pointer-events-none z-10"
-            style="left: 50%; transform: translateX(-50%);"
-        ></div>
+    <!-- Overlay image (Before) -->
+    <div 
+      id="before-img-container" 
+      class="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none"
+      style="clip-path: inset(0 50% 0 0);"
+    >
+      <img 
+          src={beforeSrc} 
+          class="absolute inset-0 w-full h-full object-cover" 
+          alt="Before Remodel" 
+      />
+      <div class="absolute top-6 left-6 bg-white/90 backdrop-blur text-navy text-xs font-black px-4 py-2 rounded-full shadow-xl z-10 border border-gray-200 uppercase tracking-widest">Before</div>
     </div>
+    
+    <!-- Vertical Drag Handle -->
+    <div 
+        id="slider-handle" 
+        class="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] cursor-ew-resize z-30 group-active:scale-x-150 transition-transform"
+        style="left: 50%;"
+    >
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-2xl border-4 border-blue-brand flex items-center justify-center">
+        <svg class="w-6 h-6 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M8 9l-4 3 4 3m8-6l4 3-4 3" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Invisible range input for mobile and backup interaction -->
+    <input 
+        type="range" 
+        id="slider-range-hidden" 
+        min="0" 
+        max="100" 
+        value="50" 
+        class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40"
+    />
   </div>
 
   <!-- Side by Side View -->
-  <div id="view-side-by-side" class="hidden grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="relative bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center border border-gray-200 p-2">
-      <img src={beforeSrc} class="w-full max-h-[60vh] object-contain block rounded" alt="Before Remodel" />
-      <div class="absolute top-4 left-4 bg-white text-navy text-sm font-bold px-3 py-1 rounded shadow-md z-10 border border-gray-200">Before</div>
+  <div id="view-side-by-side" class="hidden grid-cols-1 md:grid-cols-2">
+    <div class="relative aspect-video">
+      <img src={beforeSrc} class="w-full h-full object-cover block" alt="Before Remodel" />
+      <div class="absolute top-6 left-6 bg-white/90 backdrop-blur text-navy text-xs font-black px-4 py-2 rounded-full shadow-xl z-10 border border-gray-200 uppercase tracking-widest">Before</div>
     </div>
-    <div class="relative bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center border border-gray-200 p-2">
-      <img src={afterSrc} class="w-full max-h-[60vh] object-contain block rounded" alt="After Remodel" />
-      <div class="absolute top-4 right-4 bg-navy text-white text-sm font-bold px-3 py-1 rounded shadow-md z-10">After</div>
+    <div class="relative aspect-video border-l border-white/20">
+      <img src={afterSrc} class="w-full h-full object-cover block" alt="After Remodel" />
+      <div class="absolute top-6 right-6 bg-navy/80 backdrop-blur text-white text-xs font-black px-4 py-2 rounded-full shadow-xl z-10 border border-white/10 uppercase tracking-widest">After</div>
     </div>
   </div>
 </div>
 
 <script>
   const initBeforeAfter = () => {
-    const sliderInput = document.getElementById('slider-input') as HTMLInputElement;
-    const beforeImgClip = document.getElementById('before-img-clip');
-    const sliderLine = document.getElementById('slider-line');
+    const rangeInput = document.getElementById('slider-range-hidden') as HTMLInputElement;
+    const beforeImgContainer = document.getElementById('before-img-container');
+    const sliderHandle = document.getElementById('slider-handle');
     
-    if (sliderInput && beforeImgClip && sliderLine) {
-      sliderInput.addEventListener('input', (e) => {
-        const val = (e.target as HTMLInputElement).value;
-        beforeImgClip.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
-        sliderLine.style.left = `${val}%`;
+    const updateSlider = (val: string) => {
+      if (beforeImgContainer) {
+        // We use inset(top right bottom left)
+        // val=0 -> inset(0 100% 0 0) -> before is hidden
+        // val=100 -> inset(0 0 0 0) -> before is full
+        // So right inset is (100 - val)%
+        beforeImgContainer.style.clipPath = `inset(0 ${100 - parseInt(val)}% 0 0)`;
+      }
+      if (sliderHandle) {
+        sliderHandle.style.left = `${val}%`;
+      }
+    };
+
+    if (rangeInput) {
+      rangeInput.addEventListener('input', (e) => {
+        updateSlider((e.target as HTMLInputElement).value);
       });
+      
+      // Initial set
+      updateSlider(rangeInput.value);
     }
 
     const btnSlider = document.getElementById('btn-slider');

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTABanner from '../components/CTABanner.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
 
 const services = [
   {
@@ -55,51 +56,52 @@ const allAreas = [
   <Header />
 
   <!-- Hero -->
-  <section class="relative bg-navy overflow-hidden min-h-[600px] flex items-center">
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img 
-        id="hero-bg"
-        src="/craftsman-drywall/images/hero-rainier.jpg" 
-        alt="Peter Robbins photography" 
-        class="w-full h-full object-cover object-[center_65%] transition-opacity duration-300"
-      />
-      <!-- Overlay to ensure text readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/45 to-transparent"></div>
+  <section class="relative bg-navy overflow-hidden py-24 lg:py-40 flex items-center">
+    <!-- Subtle Background Pattern/Gradient -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-brand/20 via-transparent to-transparent"></div>
+      <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-blue-brand/5 blur-[120px] rounded-full"></div>
     </div>
 
-    <!-- Toggle for Client Presentation -->
-    <div class="absolute top-6 right-6 sm:top-8 sm:right-8 z-40 flex items-center gap-3 bg-navy/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/10 shadow-xl">
-      <span class="text-xs font-bold text-white/90 uppercase tracking-wider transition-colors duration-300">Photo 1</span>
-      <button id="hero-photo-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-brand/50 transition-colors duration-300 focus:outline-none cursor-pointer">
-        <span id="hero-toggle-knob" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300 translate-x-1"></span>
-      </button>
-      <span class="text-xs font-bold text-white/50 uppercase tracking-wider transition-colors duration-300">Photo 2</span>
-    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/10 border border-blue-brand/20 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-brand opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-brand"></span>
+            </span>
+            Thurston County's Premier Drywall Service
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+            Olympia's Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
+          </h1>
+          <p class="text-xl text-white/80 mb-10 leading-relaxed max-w-xl font-medium">
+            30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-5">
+            <a
+              href="/craftsman-drywall/contact"
+              data-estimate
+              class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg transition-all duration-300 text-center shadow-2xl shadow-blue-brand/30 hover:-translate-y-1"
+            >
+              Get a Free Estimate
+            </a>
+            <a
+              href="tel:3602822218"
+              class="bg-white/5 border border-white/20 text-white hover:bg-white/10 font-semibold px-10 py-5 rounded-xl text-lg transition-all duration-300 text-center backdrop-blur-md"
+            >
+              (360) 282-2218
+            </a>
+          </div>
+        </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 sm:py-32 lg:py-40">
-      <div class="max-w-3xl">
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-          Olympia's Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
-        </h1>
-        <p class="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl font-medium">
-          30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="/craftsman-drywall/contact"
-            data-estimate
-            class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors duration-150 text-center shadow-lg shadow-blue-brand/25"
-          >
-            Get a Free Estimate
-          </a>
-          <a
-            href="tel:3602822218"
-            class="bg-white/10 border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/60 font-semibold px-8 py-4 rounded-lg text-lg transition-all duration-150 text-center backdrop-blur-sm"
-          >
-            (360) 282-2218
-          </a>
+        <div class="relative">
+          <BeforeAfter className="rotate-1 hover:rotate-0 transition-transform duration-500" />
+          
+          <!-- Decorative element behind the slider -->
+          <div class="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-blue-brand/20 rounded-2xl"></div>
+          <div class="absolute -z-10 -bottom-6 -left-6 w-full h-full border-2 border-white/10 rounded-2xl"></div>
         </div>
       </div>
     </div>
@@ -407,52 +409,6 @@ const allAreas = [
   </section>
 
   <script>
-    // Hero Photo Toggle
-    const heroBg = document.getElementById('hero-bg') as HTMLImageElement | null;
-    const heroToggle = document.getElementById('hero-photo-toggle');
-    const heroKnob = document.getElementById('hero-toggle-knob');
-    
-    if (heroBg && heroToggle && heroKnob) {
-      const label1 = heroToggle.previousElementSibling;
-      const label2 = heroToggle.nextElementSibling;
-      let isPhoto2 = false;
-      
-      // Preload image
-      const preload = new Image();
-      preload.src = '/craftsman-drywall/images/hero-olympia.jpg';
-
-      heroToggle.addEventListener('click', () => {
-        isPhoto2 = !isPhoto2;
-        
-        // UI Updates
-        if (isPhoto2) {
-          heroKnob.classList.replace('translate-x-1', 'translate-x-6');
-          heroToggle.classList.replace('bg-blue-brand/50', 'bg-blue-brand');
-          label1?.classList.replace('text-white/90', 'text-white/50');
-          label2?.classList.replace('text-white/50', 'text-white/90');
-          
-          heroBg.style.opacity = '0';
-          setTimeout(() => {
-            heroBg.src = '/craftsman-drywall/images/hero-olympia.jpg';
-            heroBg.classList.replace('object-[center_65%]', 'object-[center_35%]');
-            heroBg.style.opacity = '1';
-          }, 300);
-        } else {
-          heroKnob.classList.replace('translate-x-6', 'translate-x-1');
-          heroToggle.classList.replace('bg-blue-brand', 'bg-blue-brand/50');
-          label1?.classList.replace('text-white/50', 'text-white/90');
-          label2?.classList.replace('text-white/90', 'text-white/50');
-          
-          heroBg.style.opacity = '0';
-          setTimeout(() => {
-            heroBg.src = '/craftsman-drywall/images/hero-rainier.jpg';
-            heroBg.classList.replace('object-[center_35%]', 'object-[center_65%]');
-            heroBg.style.opacity = '1';
-          }, 300);
-        }
-      });
-    }
-
     const toggleBtn = document.getElementById('toggle-areas');
     const extendedAreas = document.getElementById('extended-areas');
 
