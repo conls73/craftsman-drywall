@@ -56,14 +56,14 @@ const { className = "" } = Astro.props;
     </div>
 
     <!-- Side by Side View (FULL SCREEN MODE) -->
-    <div id="view-side-by-side" class="hidden absolute inset-0 z-50 bg-navy">
+    <div id="view-side-by-side" class="hidden relative w-full min-h-[60vh] md:min-h-[80vh] bg-navy">
       <div class="grid grid-cols-2 w-full h-full gap-px bg-white/10">
-        <div class="relative w-full h-full flex items-center justify-center p-8">
-            <div class="absolute top-10 left-10 z-20 bg-white text-navy text-xs font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-gray-200">Before</div>
+        <div class="relative w-full h-full flex items-center justify-center p-4 md:p-8">
+            <div class="absolute top-6 left-6 md:top-10 md:left-10 z-20 bg-white text-navy text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-gray-200">Before</div>
             <img src={beforeSrc} class="max-w-full max-h-full object-contain" alt="Before" />
         </div>
-        <div class="relative w-full h-full flex items-center justify-center p-8">
-            <div class="absolute top-10 right-10 z-20 bg-blue-brand text-white text-xs font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-white/10">After</div>
+        <div class="relative w-full h-full flex items-center justify-center p-4 md:p-8">
+            <div class="absolute top-6 right-6 md:top-10 md:right-10 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-white/10">After</div>
             <img src={afterSrc} class="max-w-full max-h-full object-contain" alt="After" />
         </div>
       </div>
