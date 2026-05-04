@@ -102,16 +102,22 @@ const allAreas = [
 
   <style>
     .hero-full-mode #hero-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
       opacity: 1;
-      transform: translateX(0);
-      pointer-events: auto;
       z-index: 60;
+      width: 100%;
+      max-width: 48rem; /* 3xl */
+      padding-left: 1rem;
     }
     
     .hero-full-mode #hero-grid {
       display: block;
-      gap: 0;
+      position: relative;
     }
+
     .hero-full-mode #hero-slider-col {
       width: 100vw;
       height: 90vh;
@@ -125,6 +131,17 @@ const allAreas = [
     .hero-full-mode #hero-section {
         padding-top: 5rem;
         padding-bottom: 5rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero-full-mode #hero-text {
+            padding-left: 2rem;
+        }
+    }
+    @media (min-width: 1024px) {
+        .hero-full-mode #hero-text {
+            padding-left: 4rem;
+        }
     }
   </style>
 
