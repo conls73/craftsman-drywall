@@ -11,7 +11,7 @@ const { className = "" } = Astro.props;
 
 <div class={`before-after-wrapper flex flex-col gap-6 ${className}`}>
   <!-- Toggle Controls -->
-  <div class="flex justify-center relative z-[60]">
+  <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[100]">
     <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
       <button 
         id="btn-slider" 
@@ -29,7 +29,7 @@ const { className = "" } = Astro.props;
   </div>
 
   <!-- Main Display Area -->
-  <div id="display-area" class="before-after-card relative overflow-hidden bg-navy/20 rounded-3xl transition-all duration-700 ease-in-out border border-white/5">
+  <div id="display-area" class="before-after-card relative overflow-hidden bg-navy/20 rounded-3xl transition-all duration-700 ease-in-out border border-white/5 mt-20">
     
     <!-- Slider View (2-Column Mode or Container Mode) -->
     <div id="view-slider" class="relative w-full aspect-[4/5] md:aspect-square overflow-hidden group flex items-center justify-center">
@@ -59,11 +59,11 @@ const { className = "" } = Astro.props;
     <div id="view-side-by-side" class="hidden relative w-full min-h-[60vh] md:min-h-[80vh] bg-navy">
       <div class="grid grid-cols-2 w-full h-full gap-px bg-white/10">
         <div class="relative w-full h-full flex items-center justify-center p-4 md:p-8">
-            <div class="absolute top-6 left-6 md:top-10 md:left-10 z-20 bg-white text-navy text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-gray-200">Before</div>
+            <div class="absolute top-10 left-10 z-20 bg-white text-navy text-[10px] font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-gray-200">Before</div>
             <img src={beforeSrc} class="max-w-full max-h-full object-contain" alt="Before" />
         </div>
         <div class="relative w-full h-full flex items-center justify-center p-4 md:p-8">
-            <div class="absolute top-6 right-6 md:top-10 md:right-10 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-white/10">After</div>
+            <div class="absolute top-10 right-10 z-20 bg-blue-brand text-white text-[10px] font-black px-6 py-3 rounded-full uppercase tracking-[0.3em] shadow-2xl border border-white/10">After</div>
             <img src={afterSrc} class="max-w-full max-h-full object-contain" alt="After" />
         </div>
       </div>
