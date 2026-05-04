@@ -9,13 +9,13 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
       <button 
         id="master-btn-side-by-side" 
-        class="px-10 py-3 text-[10px] font-black rounded-xl bg-white text-navy shadow-xl transition-all uppercase tracking-[0.2em]"
+        class="px-12 py-4 text-xs font-black rounded-xl bg-white text-navy shadow-xl transition-all uppercase tracking-[0.2em]"
       >
         Side by Side
       </button>
       <button 
         id="master-btn-slider" 
-        class="px-10 py-3 text-[10px] font-black rounded-xl text-white/70 hover:text-white transition-all uppercase tracking-[0.2em]"
+        class="px-12 py-4 text-xs font-black rounded-xl text-white/70 hover:text-white transition-all uppercase tracking-[0.2em]"
       >
         Slider
       </button>
@@ -23,19 +23,19 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
   </div>
 
   <!-- Hero Content Area -->
-  <div class="relative w-full min-h-[90vh] lg:min-h-[850px] flex items-center pt-20">
+  <div class="relative w-full min-h-[100vh] lg:min-h-[950px] flex items-center pt-20">
     
     <!-- FULL HEADER SIDE-BY-SIDE MODE (Background) -->
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="Before" />
-        <div class="absolute top-28 left-1/2 -translate-x-1/2 z-20 bg-navy text-white border border-white/10 text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-xl">Before</div>
+        <div class="absolute top-28 left-1/2 -translate-x-1/2 z-20 bg-navy text-white border border-white/10 text-xs font-black px-6 py-3 rounded-full uppercase tracking-widest shadow-xl">Before</div>
       </div>
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="After" />
-        <div class="absolute top-28 left-1/2 -translate-x-1/2 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-blue-brand/20">After</div>
+        <div class="absolute top-28 left-1/2 -translate-x-1/2 z-20 bg-blue-brand text-white text-xs font-black px-6 py-3 rounded-full uppercase tracking-widest shadow-lg shadow-blue-brand/20">After</div>
       </div>
-      <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-40"></div>
+      <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-10"></div>
     </div>
 
     <!-- Hero Copy -->
