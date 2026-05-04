@@ -1,0 +1,94 @@
+---
+const beforeSrc = '/craftsman-drywall/images/before.jpg';
+const afterSrc = '/craftsman-drywall/images/after.jpg';
+---
+
+<div class="relative w-full overflow-hidden bg-navy">
+  <!-- Desktop Comparison Layout (Hidden on Mobile) -->
+  <div class="hidden lg:flex relative w-full h-[85vh] min-h-[600px]">
+    <!-- Left Side: Before -->
+    <div class="relative w-1/2 h-full overflow-hidden">
+      <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover" alt="Before" />
+      <!-- Dark overlay for text readability - Left side only -->
+      <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent z-10"></div>
+      
+      <!-- Before Label -->
+      <div class="absolute top-8 left-8 z-20 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Before</div>
+      
+      <!-- Hero Copy Overlay -->
+      <div class="absolute inset-0 flex items-center z-30 px-16">
+        <div class="max-w-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6">
+            Thurston County’s Premier Drywall Service
+          </div>
+          <h1 class="text-6xl font-extrabold text-white leading-[1.1] mb-6">
+            Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
+          </h1>
+          <p class="text-xl text-white/80 mb-10 leading-relaxed font-medium">
+            30+ years of flawless finishes. Licensed, bonded, and fully insured. From installation to repair — we do it right the first time.
+          </p>
+          <div class="flex gap-5">
+            <a href="/craftsman-drywall/contact" class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-blue-brand/20">
+              Get a Free Estimate
+            </a>
+            <a href="tel:3602822218" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-300 backdrop-blur-md">
+              (360) 282-2218
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: After -->
+    <div class="relative w-1/2 h-full overflow-hidden">
+      <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover" alt="After" />
+      <!-- After Label -->
+      <div class="absolute top-8 right-8 z-20 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg shadow-blue-brand/20">After</div>
+    </div>
+
+    <!-- Center Divider Line -->
+    <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-40"></div>
+  </div>
+
+  <!-- Mobile Hero Layout (Stacked) -->
+  <div class="lg:hidden flex flex-col">
+    <!-- Mobile Header Hero -->
+    <div class="relative w-full h-[70vh] flex items-center px-6 overflow-hidden">
+      <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover" alt="Drywall Perfection" />
+      <!-- Dark overlay for mobile readability -->
+      <div class="absolute inset-0 bg-navy/70 z-10"></div>
+      
+      <div class="relative z-20 max-w-lg pt-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-[10px] font-bold uppercase tracking-widest mb-6">
+          Thurston County’s Premier Drywall Service
+        </div>
+        <h1 class="text-4xl font-extrabold text-white leading-tight mb-4">
+          Olympia’s Trusted<br /><span class="text-blue-brand">Drywall Experts</span>
+        </h1>
+        <p class="text-lg text-white/80 mb-8 leading-relaxed">
+          30+ years of flawless finishes. From installation to repair — we do it right.
+        </p>
+        <div class="flex flex-col gap-4">
+          <a href="/craftsman-drywall/contact" class="bg-blue-brand text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg">
+            Get a Free Estimate
+          </a>
+          <a href="tel:3602822218" class="text-white text-center font-semibold">
+            Call (360) 282-2218
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Comparison Section (Below Hero) -->
+    <div class="flex flex-col gap-2 p-4 bg-navy">
+      <div class="relative aspect-video rounded-xl overflow-hidden">
+        <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
+        <div class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">Before</div>
+      </div>
+      <div class="relative aspect-video rounded-xl overflow-hidden">
+        <img src={afterSrc} class="w-full h-full object-cover" alt="After" />
+        <div class="absolute top-4 left-4 bg-blue-brand text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">After</div>
+      </div>
+    </div>
+  </div>
+</div>
