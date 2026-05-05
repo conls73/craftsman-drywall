@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Join Our Team | Careers at Craftsman Drywall LLC"
+  description="Apply to join the Craftsman Drywall team. We are looking for experienced drywall and painting professionals in Washington."
+>
+  <Header />
+
+  <main class="bg-white py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl font-extrabold text-navy mb-4">Wanna work with us?</h1>
+        <p class="text-gray-500 text-lg">
+          We're always looking for skilled craftsmen to join our team. Tell us about your experience and we'll get back to you.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 rounded-3xl p-8 sm:p-12 border border-gray-100 shadow-xl">
+        <form 
+          name="careers" 
+          method="POST" 
+          data-netlify="true" 
+          enctype="multipart/form-data"
+          class="space-y-6"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-bold text-navy mb-2">Name *</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Your full name"
+                class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-brand/50 focus:border-blue-brand transition-all"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-bold text-navy mb-2">Phone Number *</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                required
+                placeholder="(000) 000-0000"
+                class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-brand/50 focus:border-blue-brand transition-all"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-bold text-navy mb-2">Email Address *</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="you@example.com"
+              class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-brand/50 focus:border-blue-brand transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-navy mb-3">What do you do?</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {['Drywall', 'Painting', 'Both'].map(option => (
+                <label class="relative flex items-center justify-center bg-white border border-gray-200 rounded-xl px-4 py-3 cursor-pointer hover:border-blue-brand hover:bg-blue-light/30 transition-all group">
+                  <input type="radio" name="specialty" value={option} class="sr-only peer" />
+                  <span class="text-sm font-bold text-gray-600 peer-checked:text-blue-brand transition-colors">{option}</span>
+                  <div class="absolute inset-0 border-2 border-transparent peer-checked:border-blue-brand rounded-xl pointer-events-none"></div>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label for="about" class="block text-sm font-bold text-navy mb-2">Tell us about you</label>
+            <textarea
+              name="about"
+              id="about"
+              rows="4"
+              placeholder="Briefly describe your experience and skills..."
+              class="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-brand/50 focus:border-blue-brand transition-all resize-none"
+            ></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-navy mb-2">Drop Resume (PDF or Word)</label>
+            <div class="relative group">
+              <input
+                type="file"
+                name="resume"
+                id="resume"
+                accept=".pdf,.doc,.docx"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+              />
+              <div class="bg-white border-2 border-dashed border-gray-200 group-hover:border-blue-brand group-hover:bg-blue-light/20 rounded-2xl p-8 transition-all text-center">
+                <svg class="w-10 h-10 text-gray-400 group-hover:text-blue-brand mx-auto mb-3 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <p id="file-label" class="text-gray-500 group-hover:text-blue-brand font-medium">Click to upload or drag and drop</p>
+                <p class="text-xs text-gray-400 mt-1">PDF, DOC, or DOCX (max 10MB)</p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-brand hover:bg-blue-dark text-white font-black py-4 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-blue-brand/20 hover:-translate-y-1 uppercase tracking-widest"
+          >
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const fileInput = document.getElementById('resume') as HTMLInputElement;
+    const fileLabel = document.getElementById('file-label');
+
+    fileInput?.addEventListener('change', (e) => {
+      const fileName = fileInput.files?.[0]?.name;
+      if (fileName && fileLabel) {
+        fileLabel.textContent = `Selected: ${fileName}`;
+        fileLabel.classList.add('text-blue-brand');
+      }
+    });
+  </script>
+
+  <Footer />
+</BaseLayout>
