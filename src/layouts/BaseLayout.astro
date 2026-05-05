@@ -78,17 +78,31 @@ const schema = {
   <body class="font-sans bg-white text-gray-800 antialiased">
     <slot />
     
-    <!-- Global Floating Action Button -->
-    <button
-      data-estimate
-      class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center gap-2.5 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none ring-4 ring-white/50 group"
-      aria-label="Request a Free Estimate"
-    >
-      <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-      </svg>
-      <span class="font-bold text-sm sm:text-base tracking-wide">Free Estimate</span>
-    </button>
+    <!-- Global Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex flex-col items-end gap-3">
+      <!-- Free Estimate Button -->
+      <button
+        data-estimate
+        class="bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center gap-2.5 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none ring-4 ring-white/50 group"
+        aria-label="Request a Free Estimate"
+      >
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        <span class="font-bold text-sm sm:text-base tracking-wide whitespace-nowrap">Free Estimate</span>
+      </button>
+
+      <!-- Review Us Button -->
+      <a
+        href="https://www.google.com/search?hl=en-US&gl=us&q=Craftsman+Drywall+LLC&ludocid=9374436617341825017&lsig=AB86z5WfKx4IoKyOOyoJBYcwW2Ig#lrd=0x549173bc2c14b065:0x8218b06f8212eff9,3"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-white hover:bg-gray-50 text-gray-800 shadow-xl rounded-full px-5 py-2.5 flex items-center gap-2.5 transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 group"
+      >
+        <svg class="w-4 h-4 text-blue-brand group-hover:text-blue-dark transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.82 0-8.67-3.89-8.67-8.8s3.85-8.8 8.67-8.8c2.62 0 4.6 1.04 6.13 2.5l2.31-2.31C19.34 1.6 16.48 0 12.48 0 5.86 0 .3 5.39.3 12s5.56 12 12.18 12c3.57 0 6.26-1.17 8.37-3.36 2.16-2.16 2.84-5.21 2.84-7.66 0-.76-.05-1.46-.14-2.06h-11.07z"/></svg>
+        <span class="font-bold text-sm tracking-wide whitespace-nowrap">Review Us</span>
+      </a>
+    </div>
 
     <EstimateModal />
   </body>
