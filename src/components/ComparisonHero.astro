@@ -5,7 +5,7 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
 
 <div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
   <!-- Global Toggle -->
-  <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[100]">
+  <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[100] hidden lg:flex">
     <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
       <button 
         id="master-btn-side-by-side" 
@@ -22,8 +22,8 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     </div>
   </div>
 
-  <!-- Hero Content Area -->
-  <div class="relative w-full min-h-[100vh] lg:min-h-[950px] flex items-center pt-20">
+  <!-- Hero Content Area (Desktop) -->
+  <div class="relative w-full min-h-[100vh] lg:min-h-[950px] lg:flex hidden items-center pt-20">
     
     <!-- FULL HEADER SIDE-BY-SIDE MODE (Background) -->
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
@@ -98,28 +98,42 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     </div>
   </div>
 
-  <!-- Mobile Stacked Layout (Always Side-by-Side style) -->
-  <div class="lg:hidden flex flex-col bg-navy">
-    <div class="relative w-full h-[65vh] flex items-center px-6 overflow-hidden">
-      <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover" alt="After" />
-      <div class="absolute inset-0 bg-navy/70 z-10"></div>
-      <div class="relative z-20 max-w-lg pt-12">
-        <h1 class="text-4xl font-extrabold text-white leading-tight mb-4">Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span></h1>
-        <p class="text-lg text-white/80 mb-8 leading-relaxed">30+ years experience installing and finishing. Licensed, bonded and insured.</p>
-        <a href="/craftsman-drywall/contact" class="inline-block bg-blue-brand text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg w-full">Get a Free Estimate</a>
+  <!-- Mobile Stacked Layout -->
+  <div class="lg:hidden flex flex-col bg-navy px-4 py-8 gap-6">
+    <!-- Header Card -->
+    <div class="bg-navy-light rounded-[2.5rem] p-8 sm:p-10 border border-white/5 shadow-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-[10px] font-bold uppercase tracking-widest mb-6">
+        No Job Too Small
+      </div>
+      <h1 class="text-[2.6rem] font-extrabold text-white leading-[1.1] mb-6">
+        Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
+      </h1>
+      <p class="text-lg text-white/70 mb-10 leading-relaxed">
+        30+ years experience installing and finishing. Licensed, bonded and insured.
+      </p>
+      <div class="flex flex-col gap-4">
+        <a href="/craftsman-drywall/contact" class="bg-blue-brand text-white font-bold px-8 py-5 rounded-2xl text-lg text-center shadow-lg shadow-blue-brand/20">
+          Get a Free Estimate
+        </a>
+        <a href="tel:3602822218" class="bg-white/5 text-white border border-white/10 font-bold px-8 py-5 rounded-2xl text-lg text-center backdrop-blur-md">
+          (360) 282-2218
+        </a>
       </div>
     </div>
-    <div class="flex flex-col gap-2 p-4">
-      <div class="relative aspect-video rounded-xl overflow-hidden border border-white/10">
+
+    <!-- Before & After Stack -->
+    <div class="flex flex-col gap-4">
+      <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
         <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
-        <div class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">Before</div>
+        <div class="absolute top-6 left-6 bg-navy/60 backdrop-blur-md text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] border border-white/10">Before</div>
       </div>
-      <div class="relative aspect-video rounded-xl overflow-hidden border border-white/10">
+      <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
         <img src={afterSrc} class="w-full h-full object-cover" alt="After" />
-        <div class="absolute top-4 left-4 bg-blue-brand text-white text-[8px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest">After</div>
+        <div class="absolute top-6 left-6 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] shadow-lg shadow-blue-brand/20">After</div>
       </div>
     </div>
   </div>
+
 </div>
 
 <style>
