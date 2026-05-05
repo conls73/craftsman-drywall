@@ -9,8 +9,10 @@ const services = [
   {
     href: '/craftsman-drywall/services/drywall-installation',
     image: '/craftsman-drywall/images/install.jpg',
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L3 7v10c0 5.55 4.13 10.74 9 11.8c4.87-1.06 9-6.25 9-11.8V7l-9-5zm0 2.18L5 7.5v9.5c0 4.41 2.92 8.17 7 9.29c4.08-1.12 7-4.88 7-9.29V7.5L12 4.18z"/></svg>`,
     title: 'Drywall Installation',
+    detail: 'Hand Troweled, Smooth Texture & Level 5',
+    detail2: 'We will match any texture',
     desc: 'Full installation for new construction and remodels. Fire-resistant and water-resistant options available for any room.',
   },
   {
@@ -21,18 +23,18 @@ const services = [
     desc: 'Holes, cracks, water damage, or texture matching — we patch and repair drywall seamlessly so it looks like new.',
   },
   {
-    href: '/craftsman-drywall/services/remodeling',
-    image: '/craftsman-drywall/images/remodel.jpg',
-    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
-    title: 'Remodeling',
-    desc: 'Residential and commercial remodeling done right. From basement finishes to full room transformations.',
-  },
-  {
     href: '/craftsman-drywall/services/painting',
     image: '/craftsman-drywall/images/paint.jpg',
     icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>`,
-    title: 'Painting',
-    desc: 'Interior and exterior painting with clean, professional results. The perfect finish to every drywall project.',
+    title: 'Interior Painting',
+    desc: 'Professional interior painting for walls, ceilings, trim, doors, and finished spaces. Clean prep, smooth coverage, and detailed finishing for a polished result.',
+  },
+  {
+    href: '/craftsman-drywall/services/painting',
+    image: '/craftsman-drywall/images/exterior-paint.jpg',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l9-9 9 9v10a1 1 0 01-1 1h-2v-7h-6v7H4a1 1 0 01-1-1V12z"/></svg>`,
+    title: 'Exterior Painting',
+    desc: 'Durable exterior painting for homes, siding, trim, doors, and outdoor surfaces. Proper prep and quality finishes built to handle Washington weather.',
   },
 ];
 
@@ -76,7 +78,9 @@ const allAreas = [
               <div class="w-14 h-14 bg-blue-light rounded-xl flex items-center justify-center text-blue-brand mb-5 sm:group-hover:bg-blue-brand sm:group-hover:text-white transition-colors duration-300">
                 <Fragment set:html={service.icon} />
               </div>
-              <h3 class="text-lg font-bold text-gray-900 sm:group-hover:text-white transition-colors duration-300 mb-2">{service.title}</h3>
+              <h3 class="text-lg font-bold text-gray-900 sm:group-hover:text-white transition-colors duration-300 mb-1">{service.title}</h3>
+              {service.detail && <p class="text-blue-brand font-semibold text-xs mb-1 sm:group-hover:text-blue-light transition-colors">{service.detail}</p>}
+              {service.detail2 && <p class="text-blue-brand font-semibold text-xs mb-3 sm:group-hover:text-blue-light transition-colors">{service.detail2}</p>}
               <p class="text-gray-500 sm:group-hover:text-white/80 transition-colors duration-300 text-sm leading-relaxed">{service.desc}</p>
               <span class="mt-auto pt-4 inline-flex items-center gap-1 text-blue-brand sm:group-hover:text-blue-light text-sm font-semibold sm:group-hover:gap-2 transition-all duration-300">
                 Learn more

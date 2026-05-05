@@ -22,9 +22,9 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <!-- Desktop Nav Row -->
-      <div class="hidden md:grid grid-cols-3 items-center w-full">
-        <!-- Left Side CTAs -->
-        <div class="flex items-center gap-6">
+      <div class="hidden md:flex flex-col xl:flex-row items-center justify-center gap-4 relative w-full">
+        <!-- CTA Group -->
+        <div class="order-2 xl:order-none xl:absolute xl:right-0 xl:top-1/2 xl:-translate-y-1/2 flex items-center gap-6">
           <a
             href="tel:3602822218"
             class="text-white/70 text-sm font-bold hover:text-white transition-colors"
@@ -41,25 +41,25 @@ const currentPath = Astro.url.pathname;
         </div>
 
         <!-- Centered Nav -->
-        <nav class="flex items-center justify-center gap-1 bg-white/5 backdrop-blur-sm px-1.5 py-1.5 rounded-full border border-white/10">
+        <nav class="order-1 flex items-center justify-center gap-4 min-w-[560px] bg-white/5 backdrop-blur-sm px-8 py-1.5 rounded-full border border-white/10">
           {navLinks.map(link => {
             const isHome = link.label === 'Home';
             const linkSegments = link.href.split('/').filter(Boolean);
             const linkPath = linkSegments[linkSegments.length - 1] || '';
             const currentSegments = currentPath.split('/').filter(Boolean);
             const currentLastSegment = currentSegments[currentSegments.length - 1] || '';
-            
+
             let isActive;
             if (isHome) {
               isActive = (currentSegments.length === 1 && currentLastSegment === 'craftsman-drywall') || (currentSegments.length === 0);
             } else {
               isActive = currentPath.includes(`/${linkPath}`);
             }
-              
+
             return (
               <a
                 href={link.href}
-                class={`px-6 py-2 rounded-full text-xs font-black transition-all duration-200 uppercase tracking-widest
+                class={`px-8 py-2.5 rounded-full text-xs font-black transition-all duration-200 uppercase tracking-widest
                   ${isActive
                     ? 'text-white bg-blue-brand shadow-lg shadow-blue-brand/20'
                     : 'text-white/60 hover:text-white hover:bg-white/10'}`}
@@ -69,11 +69,6 @@ const currentPath = Astro.url.pathname;
             );
           })}
         </nav>
-
-        <!-- Right Side Spacer -->
-        <div class="flex justify-end">
-          <!-- Placeholder to keep nav centered -->
-        </div>
       </div>
 
       <!-- Mobile menu button -->
