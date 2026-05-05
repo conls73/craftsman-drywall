@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
 <header class="relative z-[150] bg-navy border-b border-white/5 py-6">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Centered Logo Row -->
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-6 relative">
       <a href="/craftsman-drywall/" class="flex items-center justify-center transition-transform hover:scale-105 duration-300">
         <img
           src="/craftsman-drywall/logo.png"
@@ -22,9 +22,9 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <!-- Desktop Nav Row -->
-      <div class="hidden md:flex flex-col xl:flex-row items-center justify-center gap-4 relative w-full">
+      <div class="hidden md:flex items-center justify-center gap-12 w-full relative">
         <!-- Social Media Links (Left) -->
-        <div class="order-3 xl:order-none xl:absolute xl:left-0 xl:top-1/2 xl:-translate-y-1/2 flex items-center gap-4">
+        <div class="flex items-center gap-4">
           <a href="https://www.facebook.com/p/Craftsman-Drywall-LLC-61565516558153/" target="_blank" rel="noopener noreferrer" class="text-blue-brand hover:text-white transition-colors flex items-center justify-center w-8 h-8" aria-label="Facebook">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/></svg>
           </a>
@@ -36,25 +36,8 @@ const currentPath = Astro.url.pathname;
           </a>
         </div>
 
-        <!-- CTA Group -->
-        <div class="order-2 xl:order-none xl:absolute xl:right-0 xl:top-1/2 xl:-translate-y-1/2 flex items-center gap-6">
-          <a
-            href="tel:3602822218"
-            class="text-white/70 text-sm font-bold hover:text-white transition-colors"
-          >
-            (360) 282-2218
-          </a>
-          <a
-            href="/craftsman-drywall/contact"
-            data-estimate
-            class="bg-blue-brand hover:bg-blue-dark text-white text-xs font-black px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-blue-brand/20 uppercase tracking-widest"
-          >
-            Estimate
-          </a>
-        </div>
-
         <!-- Centered Nav -->
-        <nav class="order-1 flex items-center justify-center gap-4 min-w-[560px] bg-white/5 backdrop-blur-sm px-8 py-1.5 rounded-full border border-white/10">
+        <nav class="flex items-center justify-center gap-4 bg-white/5 backdrop-blur-sm px-8 py-1.5 rounded-full border border-white/10">
           {navLinks.map(link => {
             const isHome = link.label === 'Home';
             const linkSegments = link.href.split('/').filter(Boolean);
@@ -82,12 +65,29 @@ const currentPath = Astro.url.pathname;
             );
           })}
         </nav>
+
+        <!-- CTA Group (Right) -->
+        <div class="flex items-center gap-6">
+          <a
+            href="tel:3602822218"
+            class="text-white/70 text-sm font-bold hover:text-white transition-colors"
+          >
+            (360) 282-2218
+          </a>
+          <a
+            href="/craftsman-drywall/contact"
+            data-estimate
+            class="bg-blue-brand hover:bg-blue-dark text-white text-xs font-black px-5 py-2.5 rounded-full transition-all duration-200 shadow-lg shadow-blue-brand/20 uppercase tracking-widest"
+          >
+            Estimate
+          </a>
+        </div>
       </div>
 
       <!-- Mobile menu button -->
       <button
         id="menu-toggle"
-        class="md:hidden absolute right-6 top-1/2 -translate-y-1/2 text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+        class="md:hidden absolute right-0 top-1/2 -translate-y-1/2 text-white p-2 rounded-md hover:bg-white/10 transition-colors"
         aria-label="Toggle menu"
       >
         <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
