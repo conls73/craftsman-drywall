@@ -2,7 +2,6 @@
 const services = [
   { href: '/craftsman-drywall/services/drywall-installation', label: 'Drywall Installation' },
   { href: '/craftsman-drywall/services/drywall-repair', label: 'Drywall Repair' },
-  { href: '/craftsman-drywall/services/remodeling', label: 'Remodeling' },
   { href: '/craftsman-drywall/services/painting', label: 'Painting' },
 ];
 
@@ -14,11 +13,11 @@ const links = [
 
 <footer class="bg-navy text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-10 gap-x-8">
       <!-- Brand -->
-      <div class="lg:col-span-1">
+      <div class="lg:col-span-4">
         <img src="/craftsman-drywall/logo.svg" alt="Craftsman Drywall LLC" class="h-12 mb-4" />
-        <p class="text-white/60 text-sm leading-relaxed">
+        <p class="text-white/60 text-sm leading-relaxed max-w-sm">
           Proudly serving communities in Washington with quality drywall and painting since 1994.
         </p>
         <div class="mt-4 flex gap-2">
@@ -29,7 +28,7 @@ const links = [
       </div>
 
       <!-- Services -->
-      <div>
+      <div class="lg:col-span-2">
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Services</h3>
         <ul class="space-y-2">
           {services.map(s => (
@@ -43,7 +42,7 @@ const links = [
       </div>
 
       <!-- Company -->
-      <div>
+      <div class="lg:col-span-2">
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
         <ul class="space-y-2">
           {links.map(l => (
@@ -57,7 +56,7 @@ const links = [
       </div>
 
       <!-- Careers -->
-      <div>
+      <div class="lg:col-span-2">
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Careers</h3>
         <ul class="space-y-2">
           <li>
@@ -69,7 +68,7 @@ const links = [
       </div>
 
       <!-- Contact -->
-      <div>
+      <div class="lg:col-span-2">
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact</h3>
         <ul class="space-y-3">
           <li class="flex items-start gap-2">
