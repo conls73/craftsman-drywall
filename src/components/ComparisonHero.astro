@@ -39,8 +39,8 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     </div>
 
     <!-- Hero Copy -->
-    <div class="absolute inset-0 flex items-center justify-center z-30 px-6 sm:px-10 lg:px-16 pointer-events-none">
-      <div class="max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl text-center">
+    <div id="hero-copy-wrapper" class="absolute inset-0 flex items-center justify-center z-30 px-6 sm:px-10 lg:px-16 pointer-events-none transition-all duration-700">
+      <div id="hero-copy-card" class="max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl transition-all duration-700">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-brand/20 border border-blue-brand/30 text-blue-brand text-xs font-bold uppercase tracking-widest mb-6">
           No Job Too Small
         </div>
@@ -148,6 +148,22 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
   }
   .hero-state-side-by-side #bg-side-by-side {
     opacity: 1;
+  }
+
+  /* Dynamic Position for Hero Copy */
+  @media (min-width: 1024px) {
+    .hero-state-slider #hero-copy-wrapper {
+      justify-content: flex-start;
+    }
+    .hero-state-slider #hero-copy-card {
+      text-align: left;
+    }
+    .hero-state-side-by-side #hero-copy-wrapper {
+      justify-content: center;
+    }
+    .hero-state-side-by-side #hero-copy-card {
+      text-align: center;
+    }
   }
 </style>
 
