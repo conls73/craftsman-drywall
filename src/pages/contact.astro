@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 <BaseLayout
   title="Contact Us — Free Estimates"
-  description="Get a free estimate from Craftsman Drywall LLC. Call (360) 282-2218 or fill out our contact form. Serving Olympia, WA Mon–Fri 7am–4pm."
+  description="Get a free estimate from Craftsman Drywall LLC. Call (360) 282-2218 or fill out our contact form. Serving Olympia, WA Mon–Fri 7am–5pm."
 >
   <Header />
 
@@ -38,19 +38,13 @@ import Footer from '../components/Footer.astro';
                 {
                   icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
                   label: 'Location',
-                  value: 'Olympia, WA 98506',
+                  value: 'Olympia, WA',
                   href: null,
                 },
                 {
                   icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
                   label: 'Hours',
-                  value: 'Monday – Friday, 7:00am – 4:00pm',
-                  href: null,
-                },
-                {
-                  icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>`,
-                  label: 'Payment',
-                  value: 'Cash · Check · Venmo',
+                  value: 'Monday – Friday, 7:00am – 5:00pm',
                   href: null,
                 },
               ].map(item => (
@@ -71,11 +65,6 @@ import Footer from '../components/Footer.astro';
                 </div>
               ))}
             </div>
-          </div>
-
-          <div class="bg-blue-light rounded-2xl p-6 border border-blue-brand/20">
-            <p class="text-blue-dark font-semibold mb-1">Senior & Military Discount</p>
-            <p class="text-gray-600 text-sm">We offer a <strong>10% discount</strong> for seniors and military personnel. Just mention it when you call or submit your request.</p>
           </div>
 
           <div class="bg-gray-50 rounded-2xl p-6">
