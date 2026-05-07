@@ -11,10 +11,10 @@ const currentPath = Astro.url.pathname;
 
 <header class="relative z-[150] bg-navy border-b border-white/5 py-6">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Logo Row -->
-    <div class="grid grid-cols-2 xl:grid-cols-3 items-center gap-4 relative">
+    <!-- Header Container -->
+    <div class="flex items-center justify-between gap-4 relative">
       <!-- Logo (Left) -->
-      <div class="flex justify-start z-10">
+      <div class="flex-shrink-0 z-10">
         <a href="/craftsman-drywall/" class="flex items-center transition-transform hover:scale-105 duration-300">
           <img
             src="/craftsman-drywall/logo.svg"
@@ -25,7 +25,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Centered Nav (Middle) -->
-      <div class="hidden xl:flex justify-center z-10 w-full whitespace-nowrap">
+      <div class="hidden xl:flex flex-1 justify-center z-10 px-4">
         <nav class="flex items-center justify-center gap-4 bg-white/5 backdrop-blur-sm px-8 py-1.5 rounded-full border border-white/10">
           {navLinks.map(link => {
             const isHome = link.label === 'Home';
@@ -57,7 +57,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Right Side: Phone & Socials -->
-      <div class="hidden xl:flex items-center justify-end gap-8 z-10">
+      <div class="hidden xl:flex items-center justify-end gap-8 z-10 flex-shrink-0">
         <a
           href="tel:3602822218"
           class="text-white/70 text-sm font-bold hover:text-white transition-colors whitespace-nowrap"
