@@ -4,23 +4,7 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
 ---
 
 <div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
-  <!-- Global Toggle -->
-  <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[100] hidden lg:flex">
-    <div class="inline-flex bg-navy/80 backdrop-blur-2xl rounded-2xl p-1.5 border border-white/20 shadow-2xl">
-      <button 
-        id="master-btn-side-by-side" 
-        class="px-12 py-4 text-xs font-black rounded-xl bg-white text-navy shadow-xl transition-all uppercase tracking-[0.2em]"
-      >
-        Side by Side
-      </button>
-      <button 
-        id="master-btn-slider" 
-        class="px-12 py-4 text-xs font-black rounded-xl text-white/70 hover:text-white transition-all uppercase tracking-[0.2em]"
-      >
-        Slider
-      </button>
-    </div>
-  </div>
+
 
   <!-- Hero Content Area (Desktop) -->
   <div class="relative w-full min-h-[100vh] lg:min-h-[950px] lg:flex hidden items-center pt-20">
@@ -29,11 +13,11 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="Before" />
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 bg-navy/90 backdrop-blur-md text-white border border-white/20 text-sm font-black px-10 py-5 rounded-full uppercase tracking-[0.2em] shadow-2xl">Before</div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em]" style="-webkit-text-stroke: 1.5px black;">Before</div>
       </div>
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="After" />
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 bg-blue-brand text-white text-sm font-black px-10 py-5 rounded-full uppercase tracking-[0.2em] shadow-xl shadow-blue-brand/30">After</div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em]" style="-webkit-text-stroke: 1.5px black;">After</div>
       </div>
       <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-10"></div>
     </div>
@@ -61,41 +45,7 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
       </div>
     </div>
 
-    <!-- MAIN GRID CONTAINER -->
-    <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full z-50 py-24 lg:py-40">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
-        <!-- Empty Hero Text Placeholder (to keep structure for layout) -->
-        <div id="hero-text-block-spacer" class="hidden lg:block"></div>
 
-        <!-- SLIDER CARD MODE (Right Side) -->
-        <div id="hero-slider-card-col" class="relative opacity-0 translate-x-12 pointer-events-none transition-all duration-700 lg:block hidden">
-            <div class="relative group">
-                <div class="relative overflow-hidden bg-navy rounded-3xl shadow-2xl border border-white/10 aspect-square">
-                    <img src={afterSrc} class="w-full h-full object-cover select-none" alt="After" />
-                    <div id="hero-card-before-container" class="absolute inset-0 w-full h-full overflow-hidden select-none z-10" style="clip-path: inset(0 50% 0 0);">
-                        <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
-                    </div>
-                    
-                    <div class="absolute top-8 left-1/2 -translate-x-1/2 z-[45]">
-                        <div class="relative flex items-center justify-center min-w-[140px] h-10 bg-navy/80 backdrop-blur-xl rounded-full border border-white/10 shadow-2xl overflow-hidden">
-                            <div class="absolute inset-0 flex items-center justify-center text-white text-[9px] font-black uppercase tracking-[0.3em]">After</div>
-                            <div id="hero-card-label-wipe" class="absolute inset-0 flex items-center justify-center bg-white text-navy text-[9px] font-black uppercase tracking-[0.3em]" style="clip-path: inset(0 50% 0 0);">Before</div>
-                        </div>
-                    </div>
-                    <div id="hero-card-handle" class="absolute top-0 bottom-0 w-1 bg-white/40 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.6)] cursor-ew-resize z-40" style="left: 50%;">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-[0_0_50px_rgba(37,99,235,0.5)] border-4 border-blue-brand flex items-center justify-center transition-all">
-                            <svg class="w-6 h-6 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M8 9l-4 3 4 3m8-6l4 3-4 3" /></svg>
-                        </div>
-                    </div>
-                    <input type="range" id="hero-card-range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-50" />
-                </div>
-                <!-- Decorative element -->
-                <div class="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-blue-brand/20 rounded-3xl"></div>
-            </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Mobile Stacked Layout -->
@@ -125,95 +75,14 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     <div class="flex flex-col gap-4">
       <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
         <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
-        <div class="absolute top-6 left-6 bg-navy/60 backdrop-blur-md text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] border border-white/10">Before</div>
+        <div class="absolute top-6 left-6 text-white text-xl font-black uppercase tracking-[0.2em]" style="-webkit-text-stroke: 1px black;">Before</div>
       </div>
       <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
         <img src={afterSrc} class="w-full h-full object-cover" alt="After" />
-        <div class="absolute top-6 left-6 bg-blue-brand text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-[0.2em] shadow-lg shadow-blue-brand/20">After</div>
+        <div class="absolute top-6 left-6 text-white text-xl font-black uppercase tracking-[0.2em]" style="-webkit-text-stroke: 1px black;">After</div>
       </div>
     </div>
   </div>
 
 </div>
 
-<style>
-  .hero-state-slider #bg-side-by-side {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-state-slider #hero-slider-card-col {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: auto;
-  }
-  .hero-state-side-by-side #bg-side-by-side {
-    opacity: 1;
-  }
-
-  /* Dynamic Position for Hero Copy */
-  @media (min-width: 1024px) {
-    .hero-state-slider #hero-copy-wrapper {
-      justify-content: flex-start;
-    }
-    .hero-state-slider #hero-copy-card {
-      text-align: left;
-    }
-    .hero-state-side-by-side #hero-copy-wrapper {
-      justify-content: center;
-    }
-    .hero-state-side-by-side #hero-copy-card {
-      text-align: center;
-    }
-  }
-</style>
-
-<script>
-  const initMasterHero = () => {
-    const root = document.getElementById('master-hero-root');
-    const btnSlider = document.getElementById('master-btn-slider');
-    const btnSideBySide = document.getElementById('master-btn-side-by-side');
-    
-    const rangeInput = document.getElementById('hero-card-range') as HTMLInputElement;
-    const beforeContainer = document.getElementById('hero-card-before-container');
-    const labelWipe = document.getElementById('hero-card-label-wipe');
-    const handle = document.getElementById('hero-card-handle');
-
-    const updateSlider = (val: string) => {
-      const percentage = 100 - parseInt(val);
-      if (beforeContainer) beforeContainer.style.clipPath = `inset(0 ${percentage}% 0 0)`;
-      if (labelWipe) labelWipe.style.clipPath = `inset(0 ${percentage}% 0 0)`;
-      if (handle) handle.style.left = `${val}%`;
-    };
-
-    if (rangeInput) {
-      rangeInput.addEventListener('input', (e) => updateSlider((e.target as HTMLInputElement).value));
-      updateSlider(rangeInput.value);
-    }
-
-    const setMode = (mode: 'slider' | 'side-by-side') => {
-      if (!root || !btnSlider || !btnSideBySide) return;
-
-      if (mode === 'slider') {
-        root.classList.add('hero-state-slider');
-        root.classList.remove('hero-state-side-by-side');
-        btnSlider.classList.add('bg-white', 'text-navy');
-        btnSlider.classList.remove('text-white/70', 'hover:text-white');
-        btnSideBySide.classList.remove('bg-white', 'text-navy');
-        btnSideBySide.classList.add('text-white/70', 'hover:text-white');
-      } else {
-        root.classList.remove('hero-state-slider');
-        root.classList.add('hero-state-side-by-side');
-        btnSideBySide.classList.add('bg-white', 'text-navy');
-        btnSideBySide.classList.remove('text-white/70', 'hover:text-white');
-        btnSlider.classList.remove('bg-white', 'text-navy');
-        btnSlider.classList.add('text-white/70', 'hover:text-white');
-      }
-    };
-
-    btnSlider?.addEventListener('click', () => setMode('slider'));
-    btnSideBySide?.addEventListener('click', () => setMode('side-by-side'));
-  };
-
-  document.addEventListener('DOMContentLoaded', initMasterHero);
-  document.addEventListener('astro:page-load', initMasterHero);
-</script>
