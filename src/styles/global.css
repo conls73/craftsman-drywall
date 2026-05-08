@@ -167,9 +167,10 @@
   }
 
   .global-floating-actions {
+    position: static !important;
     left: auto !important;
-    right: 0.85rem !important;
-    bottom: 1rem !important;
+    right: auto !important;
+    bottom: auto !important;
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-end !important;
@@ -180,33 +181,42 @@
     display: none !important;
   }
 
-  .global-floating-actions .floating-estimate-button {
-    min-width: 0 !important;
-    padding: 0.7rem 0.95rem !important;
+  .global-floating-actions .mobile-sticky-estimate {
+    position: fixed !important;
+    right: 16px !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    z-index: 9999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 148px !important;
+    height: 52px !important;
+    padding: 0 20px !important;
     gap: 0.4rem !important;
     border-radius: 999px !important;
     opacity: 0 !important;
-    visibility: hidden !important;
     pointer-events: none !important;
-    transform: translateY(12px) !important;
-    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+    transform: translate3d(0, 14px, 0) !important;
+    transition: opacity 220ms ease, transform 220ms ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
     will-change: opacity, transform !important;
+    contain: layout paint !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
   }
 
-  .show-mobile-sticky-cta .global-floating-actions .floating-estimate-button {
+  .global-floating-actions .mobile-sticky-estimate.is-visible {
     opacity: 1 !important;
-    visibility: visible !important;
     pointer-events: auto !important;
-    transform: translateY(0) !important;
+    transform: translate3d(0, 0, 0) !important;
   }
 
-  .global-floating-actions .floating-estimate-button svg {
+  .global-floating-actions .mobile-sticky-estimate svg {
     width: 1rem !important;
     height: 1rem !important;
     flex-shrink: 0 !important;
   }
 
-  .global-floating-actions .floating-estimate-button span {
+  .global-floating-actions .mobile-sticky-estimate span {
     font-size: 0.78rem !important;
     letter-spacing: 0 !important;
   }
@@ -378,6 +388,10 @@
 }
 
 @media (min-width: 769px) {
+  .mobile-sticky-estimate {
+    display: none !important;
+  }
+
   #estimate-modal {
     display: none;
   }

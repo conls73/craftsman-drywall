@@ -232,7 +232,7 @@ const schema = {
       <!-- Free Estimate Button -->
       <button
         data-estimate
-        class="floating-button floating-estimate-button bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
+        class="floating-button floating-estimate-button mobile-sticky-estimate bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
         aria-label="Request a Free Estimate"
       >
         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,22 +261,30 @@ const schema = {
         if (mobileStickyCtaInitialized) return;
 
         const mediaQuery = window.matchMedia('(max-width: 768px)');
-        const heroCard = document.querySelector('#master-hero-root .mobile-hero-card');
-        if (!heroCard) return;
+        const stickyEstimateButton = document.querySelector('.mobile-sticky-estimate');
+        if (!stickyEstimateButton) return;
 
         mobileStickyCtaInitialized = true;
+        let ticking = false;
 
         const updateStickyCta = () => {
           if (!mediaQuery.matches) {
-            document.body.classList.remove('show-mobile-sticky-cta');
+            stickyEstimateButton.classList.remove('is-visible');
+            ticking = false;
             return;
           }
 
-          document.body.classList.toggle('show-mobile-sticky-cta', window.scrollY > 20);
+          stickyEstimateButton.classList.toggle('is-visible', window.scrollY > 20);
+          ticking = false;
         };
 
         updateStickyCta();
-        window.addEventListener('scroll', updateStickyCta, { passive: true });
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateStickyCta);
+            ticking = true;
+          }
+        }, { passive: true });
         window.addEventListener('resize', updateStickyCta);
       };
 

@@ -2,14 +2,10 @@
 const beforeSrc = '/craftsman-drywall/images/before.jpg';
 const afterSrc = '/craftsman-drywall/images/after.jpg';
 
-const slideshowImages = [
-  '/craftsman-drywall/images/before.jpg',
-  '/craftsman-drywall/images/after.jpg',
-  '/craftsman-drywall/images/gallery/photo-3.jpg',
-  '/craftsman-drywall/images/gallery/photo-6.jpg',
-  '/craftsman-drywall/images/gallery/photo-27.jpg',
-  '/craftsman-drywall/images/gallery/photo-29.jpg'
-];
+const slideshowImages = Array.from(
+  { length: 36 },
+  (_, i) => `/craftsman-drywall/images/gallery/photo-${i + 1}.jpg`
+);
 ---
 
 <div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
@@ -106,7 +102,6 @@ const slideshowImages = [
   function initMobileSlideshow() {
     const slideshow = document.getElementById('mobile-slideshow');
     if (!slideshow || slideshow.dataset.initialized === 'true') return;
-    if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     const images = Array.from(slideshow.querySelectorAll('img'));
     if (images.length < 2) return;
