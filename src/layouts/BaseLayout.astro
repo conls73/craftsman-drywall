@@ -256,13 +256,15 @@ const schema = {
 
       const initMobileStickyCta = () => {
         if (mobileStickyCtaInitialized) return;
-        mobileStickyCtaInitialized = true;
 
         const mediaQuery = window.matchMedia('(max-width: 768px)');
         const heroCard = document.querySelector('#master-hero-root .mobile-hero-card');
+        if (!heroCard) return;
+
+        mobileStickyCtaInitialized = true;
 
         const updateStickyCta = () => {
-          if (!mediaQuery.matches || !heroCard) {
+          if (!mediaQuery.matches) {
             document.body.classList.remove('show-mobile-sticky-cta');
             return;
           }

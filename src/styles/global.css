@@ -16,7 +16,8 @@
 @media (max-width: 768px) {
   #master-hero-root .mobile-hero-shell {
     min-height: 78vh !important;
-    padding: 5.25rem 1rem 6.5rem !important;
+    align-items: flex-end !important;
+    padding: 5rem 1rem 4.75rem !important;
   }
 
   #master-hero-root #mobile-slideshow img {
@@ -32,41 +33,50 @@
   #master-hero-root .mobile-hero-card {
     width: min(100%, 335px) !important;
     max-width: 335px !important;
-    padding: 18px 16px !important;
-    border-radius: 20px !important;
-    background: rgba(10, 28, 52, 0.45) !important;
-    backdrop-filter: blur(10px) saturate(1.1) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+    padding: 13px 14px !important;
+    border-radius: 18px !important;
+    background: rgba(10, 28, 52, 0.38) !important;
+    backdrop-filter: blur(9px) saturate(1.08) !important;
+    -webkit-backdrop-filter: blur(9px) saturate(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
-    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
   }
 
-  #master-hero-root .mobile-hero-title {
-    font-size: clamp(1.72rem, 7.8vw, 2.15rem) !important;
-    line-height: 1.06 !important;
-    margin-bottom: 0.65rem !important;
-  }
-
-  #master-hero-root .mobile-hero-title .text-blue-brand {
-    font-size: 0.92em !important;
-  }
-
-  #master-hero-root .mobile-hero-body {
-    font-size: 0.86rem !important;
-    line-height: 1.42 !important;
-    margin-bottom: 0.95rem !important;
-  }
-
-  #master-hero-root .mobile-hero-card .flex.flex-col.gap-4 {
-    gap: 0.65rem !important;
-  }
-
-  #master-hero-root .mobile-hero-card .cta-button {
-    width: 100% !important;
-    padding: 0.72rem 0.9rem !important;
-    border-radius: 0.8rem !important;
+  #master-hero-root .mobile-hero-label {
     font-size: 0.92rem !important;
     line-height: 1.2 !important;
+    margin-bottom: 0.7rem !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  #master-hero-root .mobile-hero-title,
+  #master-hero-root .mobile-hero-body {
+    display: none !important;
+  }
+
+  #master-hero-root .mobile-hero-actions {
+    gap: 0.55rem !important;
+  }
+
+  #master-hero-root .mobile-hero-card .mobile-estimate-button {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-height: 42px !important;
+    padding: 0.65rem 0.9rem !important;
+    border-radius: 0.85rem !important;
+    font-size: 0.92rem !important;
+    line-height: 1.1 !important;
+  }
+
+  #master-hero-root .mobile-hero-card .mobile-phone-button {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 0.85rem !important;
   }
 
   #master-hero-root #bg-side-by-side,
@@ -76,8 +86,8 @@
 
   .global-floating-actions {
     left: auto !important;
-    right: 0.75rem !important;
-    bottom: 0.75rem !important;
+    right: 0.85rem !important;
+    bottom: 1rem !important;
     flex-direction: column !important;
     align-items: stretch !important;
     justify-content: flex-end !important;
@@ -90,7 +100,7 @@
 
   .global-floating-actions .floating-estimate-button {
     min-width: 0 !important;
-    padding: 0.72rem 0.9rem !important;
+    padding: 0.7rem 0.95rem !important;
     gap: 0.4rem !important;
     border-radius: 999px !important;
     opacity: 0 !important;
