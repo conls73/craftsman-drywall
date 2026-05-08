@@ -11,6 +11,9 @@ interface Props {
 const { title, description, canonical } = Astro.props;
 const siteUrl = 'https://conls73.github.io/craftsman-drywall';
 const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
+const socialTitle = 'Drywall and Painting Contractor in Washington | Craftsman Drywall LLC';
+const socialDescription = 'Craftsman Drywall LLC provides drywall and painting contractor services in Olympia and across Washington.';
+const socialImage = `${siteUrl}/og-image-craftsman-preview.png`;
 
 const schema = {
   "@context": "https://schema.org",
@@ -63,18 +66,18 @@ const schema = {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content="Drywall Contractor in Washington | Craftsman Drywall LLC" />
-    <meta property="og:description" content="Licensed, bonded, and insured drywall and painting experts serving across Washington." />
-    <meta property="og:image" content="https://conls73.github.io/craftsman-drywall/og-image-navy-v2.png" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonicalUrl} />
-    <meta name="twitter:title" content="Drywall Contractor in Washington | Craftsman Drywall LLC" />
-    <meta name="twitter:description" content="Licensed, bonded, and insured drywall and painting experts serving across Washington." />
-    <meta name="twitter:image" content="https://conls73.github.io/craftsman-drywall/og-image-navy-v2.png" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    <meta name="twitter:image" content={socialImage} />
     <meta property="og:site_name" content="Craftsman Drywall LLC" />
 
     <!-- Favicon -->

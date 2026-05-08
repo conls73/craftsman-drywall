@@ -17,7 +17,7 @@
   #master-hero-root .mobile-hero-shell {
     min-height: 78vh !important;
     align-items: flex-end !important;
-    padding: 5rem 1rem 4.75rem !important;
+    padding: 5rem 1rem 4.25rem !important;
   }
 
   #master-hero-root #mobile-slideshow img {
@@ -31,10 +31,10 @@
   }
 
   #master-hero-root .mobile-hero-card {
-    width: min(100%, 335px) !important;
-    max-width: 335px !important;
-    padding: 13px 14px !important;
-    border-radius: 18px !important;
+    width: min(100%, 380px) !important;
+    max-width: 380px !important;
+    padding: 22px 20px !important;
+    border-radius: 22px !important;
     background: rgba(10, 28, 52, 0.38) !important;
     backdrop-filter: blur(9px) saturate(1.08) !important;
     -webkit-backdrop-filter: blur(9px) saturate(1.08) !important;
@@ -43,10 +43,15 @@
   }
 
   #master-hero-root .mobile-hero-label {
-    font-size: 0.92rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 0.7rem !important;
+    font-size: clamp(1.7rem, 8.2vw, 2.25rem) !important;
+    line-height: 1.05 !important;
+    margin-bottom: 1rem !important;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  #master-hero-root .mobile-hero-label .text-blue-brand {
+    display: inline-block !important;
+    margin-top: 0.15rem !important;
   }
 
   #master-hero-root .mobile-hero-title,
@@ -55,28 +60,33 @@
   }
 
   #master-hero-root .mobile-hero-actions {
-    gap: 0.55rem !important;
+    gap: 0.7rem !important;
   }
 
   #master-hero-root .mobile-hero-card .mobile-estimate-button {
     flex: 1 1 auto !important;
     width: auto !important;
-    min-height: 42px !important;
-    padding: 0.65rem 0.9rem !important;
-    border-radius: 0.85rem !important;
-    font-size: 0.92rem !important;
+    min-height: 52px !important;
+    padding: 0.85rem 1rem !important;
+    border-radius: 1rem !important;
+    font-size: 1.12rem !important;
     line-height: 1.1 !important;
   }
 
   #master-hero-root .mobile-hero-card .mobile-phone-button {
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
     padding: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 0.85rem !important;
+    border-radius: 1rem !important;
+  }
+
+  #master-hero-root .mobile-hero-card .mobile-phone-button svg {
+    width: 1.35rem !important;
+    height: 1.35rem !important;
   }
 
   #master-hero-root #bg-side-by-side,

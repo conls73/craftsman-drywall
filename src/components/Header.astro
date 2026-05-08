@@ -10,7 +10,7 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 relative z-[150] bg-navy border-b border-white/5 py-4">
+<header class="sticky top-0 relative z-[150] bg-navy border-b border-white/5 py-3 xl:py-4">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header Container -->
     <div class="flex xl:grid xl:grid-cols-[1fr_auto_1fr] items-center justify-between gap-4 relative w-full">
@@ -20,7 +20,7 @@ const currentPath = Astro.url.pathname;
           <img
             src="/craftsman-drywall/logo.svg"
             alt="Craftsman Drywall LLC"
-            class="h-10 sm:h-12 xl:h-auto w-auto xl:w-[330px] xl:min-w-[330px] xl:max-w-none block object-contain"
+            class="h-20 sm:h-20 xl:h-auto w-auto max-w-[calc(100vw-6rem)] xl:w-[330px] xl:min-w-[330px] xl:max-w-none block object-contain"
           />
         </a>
       </div>
