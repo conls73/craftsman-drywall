@@ -4,6 +4,8 @@
 <dialog
   id="estimate-modal"
   class="fixed inset-0 z-[100] p-4 sm:p-6 m-auto w-full max-w-2xl rounded-2xl shadow-2xl bg-white border-0 backdrop:bg-navy/60 backdrop:backdrop-blur-sm"
+  aria-label="Free Estimate Form"
+  aria-hidden="true"
 >
   <!-- Header -->
   <div class="flex items-start justify-between mb-6">
@@ -174,10 +176,16 @@
   function openModal() {
     if (modal?.open) return;
     modal?.showModal();
+    modal?.classList.add('is-open');
+    modal?.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('estimate-modal-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
+    modal?.classList.remove('is-open');
+    modal?.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('estimate-modal-open');
     modal?.close();
     document.body.style.overflow = '';
   }
@@ -201,7 +209,12 @@
     if (outside) closeModal();
   });
 
-  modal?.addEventListener('close', () => { document.body.style.overflow = ''; });
+  modal?.addEventListener('close', () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('estimate-modal-open');
+    document.body.style.overflow = '';
+  });
 
   document.addEventListener('click', (e) => {
     if (isMobileEstimateModal() && isHomePageEstimateModal() && (e.target as Element).closest('[data-estimate]')) {
