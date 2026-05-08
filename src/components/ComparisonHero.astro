@@ -5,9 +5,10 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
 const slideshowImages = [
   '/craftsman-drywall/images/before.jpg',
   '/craftsman-drywall/images/after.jpg',
-  '/craftsman-drywall/images/install.jpg',
-  '/craftsman-drywall/images/paint.jpg',
-  '/craftsman-drywall/images/repair.jpeg'
+  '/craftsman-drywall/images/gallery/photo-3.jpg',
+  '/craftsman-drywall/images/gallery/photo-6.jpg',
+  '/craftsman-drywall/images/gallery/photo-27.jpg',
+  '/craftsman-drywall/images/gallery/photo-29.jpg'
 ];
 ---
 
@@ -51,7 +52,7 @@ const slideshowImages = [
   </div>
 
   <!-- Mobile Stacked Layout -->
-  <div class="lg:hidden relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
+  <div class="mobile-hero-shell lg:hidden relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
     <!-- Mobile Slideshow Background -->
     <div class="absolute inset-0 z-0">
       <div id="mobile-slideshow" class="absolute inset-0 w-full h-full">
@@ -94,11 +95,13 @@ const slideshowImages = [
 <script>
   function initMobileSlideshow() {
     const slideshow = document.getElementById('mobile-slideshow');
-    if (!slideshow) return;
+    if (!slideshow || slideshow.dataset.initialized === 'true') return;
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
 
     const images = slideshow.querySelectorAll('img');
     if (images.length < 2) return;
 
+    slideshow.dataset.initialized = 'true';
     let currentIndex = 0;
 
     setInterval(() => {

@@ -82,7 +82,7 @@ import CTABanner from "../../components/CTABanner.astro";
                     desc: "Fire-rated drywall installation for garages being converted to living space.",
                     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v20c0 4.418 7.163 8 16 8s16-3.582 16-8V14c0-4.418-7.163-8-16-8S8 9.582 8 14z" />`,
                   },
-                ].map((item) => (
+                ].map((item, index) => (
                   <div class={`bg-gray-50 rounded-xl p-6 border border-gray-100 flex gap-4 service-card reveal ${index > 0 ? "reveal-delay-" + ((index % 3) + 1) : ""}`}>
                     <div class="w-10 h-10 bg-blue-light rounded-lg flex items-center justify-center flex-shrink-0">
                       <svg
