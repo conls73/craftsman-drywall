@@ -173,31 +173,45 @@
   const closeBtn = document.getElementById('modal-close');
   const modalForm = document.getElementById('estimate-modal-form') as HTMLFormElement | null;
 
-  function openModal() {
-    if (modal?.open) return;
-    modal?.showModal();
-    modal?.classList.add('is-open');
-    modal?.setAttribute('aria-hidden', 'false');
+  const estimateTriggerSelector =
+    '[data-estimate-trigger], [data-estimate], .free-estimate-button, .hero-estimate-button, .floating-estimate-button, .mobile-sticky-estimate';
+
+  function openModal(event?: Event) {
+    event?.preventDefault();
+    if (!modal) return;
+
+    if (!modal.open) {
+      modal.showModal();
+    }
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('estimate-modal-open');
-    document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
-    modal?.classList.remove('is-open');
-    modal?.setAttribute('aria-hidden', 'true');
+    if (!modal) return;
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('estimate-modal-open');
-    modal?.close();
-    document.body.style.overflow = '';
+
+    if (modal.open) {
+      modal.close();
+    }
   }
 
-  function isMobileEstimateModal() {
-    return window.matchMedia('(max-width: 768px)').matches;
-  }
+  const initTriggers = () => {
+    document.querySelectorAll<HTMLElement>(estimateTriggerSelector).forEach((trigger) => {
+      if (trigger.dataset.estimateBound === 'true') return;
 
-  function isHomePageEstimateModal() {
-    const path = window.location.pathname.replace(/\/$/, '');
-    return path === '/craftsman-drywall' || path === '';
-  }
+      trigger.dataset.estimateBound = 'true';
+      trigger.addEventListener('click', openModal);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', initTriggers);
+  document.addEventListener('astro:page-load', initTriggers);
 
   closeBtn?.addEventListener('click', closeModal);
 
@@ -209,18 +223,17 @@
     if (outside) closeModal();
   });
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.open) {
+      closeModal();
+    }
+  });
+
   modal?.addEventListener('close', () => {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('estimate-modal-open');
     document.body.style.overflow = '';
-  });
-
-  document.addEventListener('click', (e) => {
-    if (isMobileEstimateModal() && isHomePageEstimateModal() && (e.target as Element).closest('[data-estimate]')) {
-      e.preventDefault();
-      openModal();
-    }
   });
 
 

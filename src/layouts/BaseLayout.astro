@@ -231,8 +231,9 @@ const schema = {
     <div class="global-floating-actions fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex flex-col items-center gap-3">
       <!-- Free Estimate Button -->
       <button
-        data-estimate
-        class="floating-button floating-estimate-button mobile-sticky-estimate bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
+        type="button"
+        data-estimate-trigger
+        class="mobile-sticky-estimate floating-estimate-button free-estimate-button floating-button bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
         aria-label="Request a Free Estimate"
       >
         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +242,7 @@ const schema = {
         <span class="font-bold text-sm sm:text-base tracking-wide whitespace-nowrap">Free Estimate</span>
       </button>
 
-      <!-- Review Us Button -->
+
       <a
         href="https://search.google.com/local/writereview?placeid=ChIJZbAULLxzkVQR-e8Sgm-wGII"
         target="_blank"
@@ -288,8 +289,12 @@ const schema = {
         window.addEventListener('resize', updateStickyCta);
       };
 
-      document.addEventListener('DOMContentLoaded', initMobileStickyCta);
-      document.addEventListener('astro:page-load', initMobileStickyCta);
+      document.addEventListener('DOMContentLoaded', () => {
+        initMobileStickyCta();
+      });
+      document.addEventListener('astro:page-load', () => {
+        initMobileStickyCta();
+      });
     </script>
   </body>
 </html>

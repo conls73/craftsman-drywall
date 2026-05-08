@@ -41,6 +41,35 @@
   z-index: 1;
 }
 
+body.estimate-modal-open {
+  overflow: hidden;
+}
+
+#estimate-modal:not([open]) {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .site-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .site-header-container {
+    width: 100%;
+  }
+
+  .desktop-nav-inner {
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
 @media (min-width: 769px) {
   #bg-side-by-side,
   #bg-side-by-side * {
@@ -112,6 +141,19 @@
     align-items: center !important;
     justify-content: center !important;
     border-radius: 1rem !important;
+  }
+
+  header,
+  header a,
+  header button,
+  nav,
+  nav a,
+  nav button,
+  .global-floating-actions,
+  .global-floating-actions *,
+  #estimate-modal,
+  #estimate-modal * {
+    pointer-events: auto;
   }
 }
 
@@ -490,11 +532,94 @@
 }
 
 @media (min-width: 769px) {
-  .mobile-sticky-estimate {
-    display: none !important;
+  .global-floating-actions {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    pointer-events: auto !important;
   }
 
-  #estimate-modal {
+  .global-floating-actions .floating-estimate-button,
+  .global-floating-actions .floating-review-button {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  #estimate-modal:not([open]) {
     display: none;
+  }
+
+  #estimate-modal[open].is-open {
+    pointer-events: auto;
+    z-index: 99999;
+  }
+
+  body .service-card,
+  body .review-card,
+  body .testimonial-card,
+  body .google-review-card,
+  body .coverage-card,
+  body .location-card,
+  body .service-area-card,
+  body .area-card,
+  body .location-pill,
+  body .service-area-pill,
+  body .community-pill {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease !important;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .review-card:hover,
+  .testimonial-card:hover,
+  .google-review-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .coverage-card:hover,
+  .location-card:hover,
+  .service-area-card:hover,
+  .area-card:hover,
+  .location-pill:hover,
+  .service-area-pill:hover,
+  .community-pill:hover {
+    transform: translateY(-4px) !important;
+  }
+
+  .location-pin,
+  .coverage-pin,
+  .map-pin,
+  .service-area-pill svg,
+  .location-pill svg,
+  .community-pill svg {
+    animation: pin-bob 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pin-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
   }
 }
