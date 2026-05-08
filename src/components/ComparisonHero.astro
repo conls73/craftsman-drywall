@@ -20,7 +20,7 @@ const slideshowImages = [
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="Before" />
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em] reveal reveal-delay-2" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">Before</div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em] reveal reveal-slow reveal-delay-2" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">Before</div>
       </div>
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="After" />
@@ -30,8 +30,8 @@ const slideshowImages = [
     </div>
 
     <!-- Hero Copy -->
-    <div id="hero-copy-wrapper" class="absolute inset-0 flex items-center justify-center z-[60] px-6 sm:px-10 lg:px-16 pointer-events-none transition-all duration-700">
-      <div id="hero-copy-card" class="reveal max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl transition-all duration-700">
+    <div id="hero-copy-wrapper" class="absolute inset-0 flex items-center justify-center z-[60] px-6 sm:px-10 lg:px-16 pointer-events-none">
+      <div id="hero-copy-card" class="reveal max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl">
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
           Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
         </h1>

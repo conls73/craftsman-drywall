@@ -88,23 +88,97 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     
     <style is:global>
-      /* TEMP: Disable reveal effects */
+      /* DISABLE REVEAL ANIMATIONS */
       .reveal,
-      .fade-in,
-      .fade-up,
-      .slide-up,
-      .animate,
-      .animated,
-      .stagger,
-      .scroll-reveal {
+      .reveal-slow,
+      .reveal-soft,
+      .reveal-delay-1,
+      .reveal-delay-2,
+      .reveal-delay-3,
+      .reveal-delay-4 {
         opacity: 1 !important;
         transform: none !important;
         visibility: visible !important;
+        transition: none !important;
       }
 
-      /* Keep basic hover transitions for buttons if needed, but safety CSS above disables them */
-      button, .btn, .cta-button {
-        cursor: pointer;
+      /* Keep simple hover animations as requested */
+      .service-card,
+      .review-card,
+      .testimonial-card,
+      .google-review-card,
+      .area-card,
+      .location-pill,
+      .service-area-pill,
+      .community-pill {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          background-color 0.3s ease;
+      }
+
+      .review-card:hover,
+      .testimonial-card:hover,
+      .google-review-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(15, 40, 70, 0.14);
+      }
+
+      .location-pill:hover,
+      .service-area-pill:hover,
+      .community-pill:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(15, 40, 70, 0.12);
+      }
+
+      /* Location pin hover movement */
+      .location-pill svg,
+      .service-area-pill svg,
+      .community-pill svg,
+      .location-pill .pin-icon,
+      .service-area-pill .pin-icon,
+      .community-pill .pin-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .location-pill:hover svg,
+      .service-area-pill:hover svg,
+      .community-pill:hover svg,
+      .location-pill:hover .pin-icon,
+      .service-area-pill:hover .pin-icon,
+      .community-pill:hover .pin-icon {
+        transform: translateY(-2px) scale(1.08);
+      }
+
+      /* Simple button hover transitions */
+      button,
+      .btn,
+      .cta-button,
+      .floating-button,
+      .estimate-button {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      button:hover,
+      .btn:hover,
+      .cta-button:hover,
+      .floating-button:hover,
+      .estimate-button:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Respect reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
       }
     </style>
   </head>
@@ -116,7 +190,7 @@ const schema = {
       <!-- Free Estimate Button -->
       <button
         data-estimate
-        class="bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
+        class="floating-button bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
         aria-label="Request a Free Estimate"
       >
         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,9 +204,9 @@ const schema = {
         href="https://search.google.com/local/writereview?placeid=ChIJZbAULLxzkVQR-e8Sgm-wGII"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
+        class="floating-button bg-blue-brand hover:bg-blue-dark text-white shadow-2xl shadow-blue-brand/30 rounded-full px-5 py-3.5 sm:px-6 sm:py-4 flex items-center justify-center gap-2.5 ring-4 ring-white/50 group min-w-[160px] sm:min-w-[200px] focus:outline-none"
       >
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.82 0-8.67-3.89-8.67-8.8s3.85-8.8 8.67-8.8c2.62 0 4.6 1.04 6.13 2.5l2.31-2.31C19.34 1.6 16.48 0 12.48 0 5.86 0 .3 5.39.3 12s5.56 12 12.18 12c3.57 0 6.26-1.17 8.37-3.36 2.16-2.16 2.84-5.21 2.84-7.66 0-.76-.05-1.46-.14-2.06h-11.07z"/></svg>
+        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.82 0-8.67-3.89-8.67-8.8s3.85-8.8 8.67-8.8c2.62 0 4.6 1.04 6.13 2.5l2.31-2.31C19.34 1.6 16.48 0 12.48 0 5.86 0 .3 5.39.3 12s5.56 12 12.18 12c3.57 0 6.26-1.17 8.37-3.36 2.16-2.16 2.84-5.21 2.84-7.66 0-.76-.05-1.46-.14-2.06h-11.07z"/></svg>
         <span class="font-bold text-sm sm:text-base tracking-wide whitespace-nowrap">Review Us</span>
       </a>
     </div>
