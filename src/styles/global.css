@@ -17,7 +17,7 @@
   #master-hero-root .mobile-hero-shell {
     min-height: 78vh !important;
     align-items: flex-end !important;
-    padding: 5rem 1rem 4.25rem !important;
+    padding: 5rem 1rem 2.75rem !important;
   }
 
   #master-hero-root #mobile-slideshow img {
@@ -35,7 +35,7 @@
     max-width: 380px !important;
     padding: 22px 20px !important;
     border-radius: 22px !important;
-    background: rgba(10, 28, 52, 0.38) !important;
+    background: rgba(10, 28, 52, 0.31) !important;
     backdrop-filter: blur(9px) saturate(1.08) !important;
     -webkit-backdrop-filter: blur(9px) saturate(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
@@ -43,7 +43,7 @@
   }
 
   #master-hero-root .mobile-hero-label {
-    font-size: clamp(1.7rem, 8.2vw, 2.25rem) !important;
+    font-size: clamp(1.55rem, 7.15vw, 2rem) !important;
     line-height: 1.05 !important;
     margin-bottom: 1rem !important;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45) !important;
@@ -52,6 +52,7 @@
   #master-hero-root .mobile-hero-label .text-blue-brand {
     display: inline-block !important;
     margin-top: 0.15rem !important;
+    white-space: nowrap !important;
   }
 
   #master-hero-root .mobile-hero-title,
