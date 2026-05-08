@@ -1,10 +1,17 @@
 ---
 const beforeSrc = '/craftsman-drywall/images/before.jpg';
 const afterSrc = '/craftsman-drywall/images/after.jpg';
+
+const slideshowImages = [
+  '/craftsman-drywall/images/before.jpg',
+  '/craftsman-drywall/images/after.jpg',
+  '/craftsman-drywall/images/install.jpg',
+  '/craftsman-drywall/images/paint.jpg',
+  '/craftsman-drywall/images/repair.jpeg'
+];
 ---
 
 <div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
-
 
   <!-- Hero Content Area (Desktop) -->
   <div class="relative w-full min-h-[100vh] lg:min-h-[950px] lg:flex hidden items-center pt-20">
@@ -41,18 +48,32 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
         </div>
       </div>
     </div>
-
-
   </div>
 
   <!-- Mobile Stacked Layout -->
-  <div class="lg:hidden flex flex-col bg-navy px-4 py-8 gap-6">
+  <div class="lg:hidden relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
+    <!-- Mobile Slideshow Background -->
+    <div class="absolute inset-0 z-0">
+      <div id="mobile-slideshow" class="absolute inset-0 w-full h-full">
+        {slideshowImages.map((src, i) => (
+          <img 
+            src={src} 
+            alt="" 
+            class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === 0 ? 'opacity-100' : 'opacity-0'}`} 
+            style="object-position: center;"
+          />
+        ))}
+      </div>
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-navy/60 z-10"></div>
+    </div>
+
     <!-- Header Card -->
-    <div class="bg-navy-light rounded-[2.5rem] p-8 sm:p-10 border border-white/5 shadow-2xl reveal">
-      <h1 class="text-[1.95rem] font-extrabold text-white leading-[1.1] mb-6">
+    <div class="mobile-hero-card relative z-20 w-full max-w-lg rounded-[1.5rem] border reveal">
+      <h1 class="mobile-hero-title font-extrabold text-white leading-[1.1]">
         Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
       </h1>
-      <p class="text-lg text-white/70 mb-10 leading-relaxed">
+      <p class="mobile-hero-body text-white/80 leading-relaxed">
         30+ years experience installing and finishing. Licensed, bonded and insured.
       </p>
       <div class="flex flex-col gap-4 reveal reveal-delay-1">
@@ -64,19 +85,60 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
         </a>
       </div>
     </div>
-
-    <!-- Before & After Stack -->
-    <div class="flex flex-col gap-4">
-      <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
-        <img src={beforeSrc} class="w-full h-full object-cover" alt="Before" />
-        <div class="absolute top-6 left-6 text-white text-xl font-black uppercase tracking-[0.2em]" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.5);">Before</div>
-      </div>
-      <div class="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-xl">
-        <img src={afterSrc} class="w-full h-full object-cover" alt="After" />
-        <div class="absolute top-6 left-6 text-white text-xl font-black uppercase tracking-[0.2em]" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.5);">After</div>
-      </div>
-    </div>
   </div>
 
 </div>
 
+<style>
+  @media (max-width: 768px) {
+    .mobile-hero-card {
+      padding: 28px 24px;
+      background: rgba(15, 37, 70, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .mobile-hero-title {
+      font-size: clamp(38px, 10vw, 48px);
+      margin-bottom: 1.25rem;
+    }
+
+    .mobile-hero-body {
+      font-size: 19px;
+      margin-bottom: 2rem;
+    }
+
+    .before-after-section,
+    #before-after,
+    .before-after {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initMobileSlideshow() {
+    const slideshow = document.getElementById('mobile-slideshow');
+    if (!slideshow) return;
+
+    const images = slideshow.querySelectorAll('img');
+    if (images.length < 2) return;
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+      images[currentIndex].classList.remove('opacity-100');
+      images[currentIndex].classList.add('opacity-0');
+      
+      currentIndex = (currentIndex + 1) % images.length;
+      
+      images[currentIndex].classList.remove('opacity-0');
+      images[currentIndex].classList.add('opacity-100');
+    }, 5000);
+  }
+
+  document.addEventListener('DOMContentLoaded', initMobileSlideshow);
+  document.addEventListener('astro:page-load', initMobileSlideshow);
+</script>
