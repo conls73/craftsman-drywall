@@ -28,18 +28,19 @@ const slideshowImages = Array.from(
 
     <!-- Hero Copy -->
     <div id="hero-copy-wrapper" class="absolute inset-0 flex items-center justify-center z-[60] px-6 sm:px-10 lg:px-16 pointer-events-none">
-      <div id="hero-copy-card" class="reveal max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl">
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
-          Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
+      <div id="hero-copy-card" class="desktop-hero-card reveal max-w-3xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-8 sm:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
+        <h1 class="hero-title text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] mb-8">
+          <span class="hero-title-white block">Washington’s Trusted</span>
+          <span class="hero-title-blue text-blue-brand block">Drywall and Painting Experts</span>
         </h1>
-        <p class="text-lg sm:text-xl text-white/80 mb-10 leading-relaxed font-medium">
+        <p class="desktop-hero-body text-lg sm:text-xl text-white/80 mb-12 leading-relaxed font-medium max-w-2xl">
           30+ years experience installing and finishing. Licensed, bonded and insured.
         </p>
-        <div class="flex flex-col sm:flex-row gap-5 reveal reveal-delay-1">
-          <a href="/craftsman-drywall/contact" class="cta-button bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg shadow-xl shadow-blue-brand/20 text-center">
+        <div class="desktop-hero-buttons hero-buttons flex flex-col sm:flex-row gap-6 reveal reveal-delay-1">
+          <a href="/craftsman-drywall/contact#contact-form" data-estimate class="cta-button hero-estimate-button free-estimate-button flex-1 bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg shadow-xl shadow-blue-brand/20 text-center transition-all duration-300">
             Get a Free Estimate
           </a>
-          <a href="tel:3602822218" class="cta-button bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg backdrop-blur-md text-center">
+          <a href="tel:3602822218" class="cta-button hero-phone-button flex-1 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg backdrop-blur-md text-center transition-all duration-300">
             (360) 282-2218
           </a>
         </div>

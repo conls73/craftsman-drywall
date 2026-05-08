@@ -41,6 +41,71 @@
   z-index: 1;
 }
 
+@media (min-width: 769px) {
+  #bg-side-by-side,
+  #bg-side-by-side * {
+    pointer-events: none !important;
+  }
+
+  #hero-copy-card,
+  #hero-copy-card .hero-buttons,
+  #hero-copy-card .hero-estimate-button,
+  #hero-copy-card .hero-phone-button {
+    position: relative !important;
+    pointer-events: auto !important;
+  }
+
+  #hero-copy-card {
+    z-index: 20 !important;
+  }
+
+  #hero-copy-card .hero-buttons,
+  #hero-copy-card .hero-estimate-button,
+  #hero-copy-card .hero-phone-button {
+    z-index: 21 !important;
+  }
+
+  #hero-copy-card.desktop-hero-card {
+    width: min(820px, 90vw) !important;
+    max-width: 820px !important;
+    min-height: auto !important;
+    padding: 2.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #hero-copy-card .desktop-hero-title {
+    font-size: 3.75rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  #hero-copy-card .desktop-hero-line-white,
+  #hero-copy-card .desktop-hero-line-blue {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+
+  #hero-copy-card .desktop-hero-line-white {
+    color: #ffffff !important;
+  }
+
+  #hero-copy-card .desktop-hero-body {
+    font-size: 1.25rem !important;
+    line-height: 1.625 !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  #hero-copy-card .desktop-hero-buttons {
+    gap: 1.25rem !important;
+  }
+
+  #hero-copy-card .desktop-hero-buttons .cta-button {
+    padding: 1.25rem 2.5rem !important;
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   html {
     -webkit-text-size-adjust: 100% !important;
