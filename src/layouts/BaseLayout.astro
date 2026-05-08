@@ -272,8 +272,7 @@ const schema = {
             return;
           }
 
-          const heroCardBottom = heroCard.getBoundingClientRect().bottom;
-          document.body.classList.toggle('show-mobile-sticky-cta', heroCardBottom < 0);
+          document.body.classList.toggle('show-mobile-sticky-cta', window.scrollY > 20);
         };
 
         updateStickyCta();

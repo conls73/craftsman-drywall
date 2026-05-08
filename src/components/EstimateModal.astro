@@ -149,7 +149,7 @@
         id="modal-submit-btn"
         class="flex-1 bg-blue-brand hover:bg-blue-dark disabled:bg-gray-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-150 shadow-lg shadow-blue-brand/25 flex items-center justify-center gap-2"
       >
-        <span id="modal-btn-text">Send Request — It's Free</span>
+        <span id="modal-btn-text">Request Free Estimate</span>
         <svg id="modal-btn-spinner" class="hidden animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
@@ -182,6 +182,15 @@
     document.body.style.overflow = '';
   }
 
+  function isMobileEstimateModal() {
+    return window.matchMedia('(max-width: 768px)').matches;
+  }
+
+  function isHomePageEstimateModal() {
+    const path = window.location.pathname.replace(/\/$/, '');
+    return path === '/craftsman-drywall' || path === '';
+  }
+
   closeBtn?.addEventListener('click', closeModal);
 
   modal?.addEventListener('click', (e) => {
@@ -195,7 +204,7 @@
   modal?.addEventListener('close', () => { document.body.style.overflow = ''; });
 
   document.addEventListener('click', (e) => {
-    if ((e.target as Element).closest('[data-estimate]')) {
+    if (isMobileEstimateModal() && isHomePageEstimateModal() && (e.target as Element).closest('[data-estimate]')) {
       e.preventDefault();
       openModal();
     }
@@ -241,7 +250,7 @@
       errorMsg?.classList.remove('hidden');
     } finally {
       if (submitBtn) submitBtn.disabled = false;
-      if (btnText) btnText.textContent = "Send Request — It's Free";
+      if (btnText) btnText.textContent = 'Request Free Estimate';
       btnSpinner?.classList.add('hidden');
     }
   });
