@@ -13,29 +13,29 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={beforeSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="Before" />
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em]" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">Before</div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em] reveal reveal-delay-2" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">Before</div>
       </div>
       <div class="relative w-1/2 h-full overflow-hidden">
         <img src={afterSrc} class="absolute inset-0 w-full h-full object-cover brightness-[1.05] contrast-[1.05]" alt="After" />
-        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em]" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">After</div>
+        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 text-white text-3xl font-black uppercase tracking-[0.2em] reveal reveal-delay-3" style="text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 6px rgba(0,0,0,0.5);">After</div>
       </div>
       <div class="absolute top-0 bottom-0 left-1/2 w-px bg-white/20 z-10"></div>
     </div>
 
     <!-- Hero Copy -->
     <div id="hero-copy-wrapper" class="absolute inset-0 flex items-center justify-center z-[60] px-6 sm:px-10 lg:px-16 pointer-events-none transition-all duration-700">
-      <div id="hero-copy-card" class="max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl transition-all duration-700">
+      <div id="hero-copy-card" class="reveal max-w-xl pointer-events-auto mt-12 bg-navy/65 backdrop-blur-2xl p-7 sm:p-10 rounded-[2rem] border border-white/10 shadow-2xl transition-all duration-700">
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
           Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
         </h1>
         <p class="text-lg sm:text-xl text-white/80 mb-10 leading-relaxed font-medium">
           30+ years experience installing and finishing. Licensed, bonded and insured.
         </p>
-        <div class="flex flex-col sm:flex-row gap-5">
-          <a href="/craftsman-drywall/contact" class="bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-blue-brand/20 hover:-translate-y-1 text-center">
+        <div class="flex flex-col sm:flex-row gap-5 reveal reveal-delay-1">
+          <a href="/craftsman-drywall/contact" class="cta-button bg-blue-brand hover:bg-blue-dark text-white font-bold px-10 py-5 rounded-xl text-lg shadow-xl shadow-blue-brand/20 text-center">
             Get a Free Estimate
           </a>
-          <a href="tel:3602822218" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg transition-all duration-300 backdrop-blur-md text-center">
+          <a href="tel:3602822218" class="cta-button bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-10 py-5 rounded-xl text-lg backdrop-blur-md text-center">
             (360) 282-2218
           </a>
         </div>
@@ -48,18 +48,18 @@ const afterSrc = '/craftsman-drywall/images/after.jpg';
   <!-- Mobile Stacked Layout -->
   <div class="lg:hidden flex flex-col bg-navy px-4 py-8 gap-6">
     <!-- Header Card -->
-    <div class="bg-navy-light rounded-[2.5rem] p-8 sm:p-10 border border-white/5 shadow-2xl">
+    <div class="bg-navy-light rounded-[2.5rem] p-8 sm:p-10 border border-white/5 shadow-2xl reveal">
       <h1 class="text-[1.95rem] font-extrabold text-white leading-[1.1] mb-6">
         Washington’s Trusted<br /><span class="text-blue-brand">Drywall and Painting Experts</span>
       </h1>
       <p class="text-lg text-white/70 mb-10 leading-relaxed">
         30+ years experience installing and finishing. Licensed, bonded and insured.
       </p>
-      <div class="flex flex-col gap-4">
-        <a href="/craftsman-drywall/contact" class="bg-blue-brand text-white font-bold px-8 py-5 rounded-2xl text-lg text-center shadow-lg shadow-blue-brand/20">
+      <div class="flex flex-col gap-4 reveal reveal-delay-1">
+        <a href="/craftsman-drywall/contact" class="cta-button bg-blue-brand text-white font-bold px-8 py-5 rounded-2xl text-lg text-center shadow-lg shadow-blue-brand/20 hover:bg-blue-dark">
           Get a Free Estimate
         </a>
-        <a href="tel:3602822218" class="bg-white/5 text-white border border-white/10 font-bold px-8 py-5 rounded-2xl text-lg text-center backdrop-blur-md">
+        <a href="tel:3602822218" class="cta-button bg-white/10 border border-white/20 text-white font-semibold px-8 py-5 rounded-2xl text-lg text-center hover:bg-white/20 backdrop-blur-md">
           (360) 282-2218
         </a>
       </div>
