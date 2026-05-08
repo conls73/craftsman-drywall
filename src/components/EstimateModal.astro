@@ -201,16 +201,7 @@
     }
   });
 
-  // ── Auto-load logic (once per session after 5s) ───────────────────
-  window.addEventListener('load', () => {
-    const hasSeenModal = sessionStorage.getItem('hasSeenEstimateModal');
-    if (!hasSeenModal) {
-      setTimeout(() => {
-        openModal();
-        sessionStorage.setItem('hasSeenEstimateModal', 'true');
-      }, 5000); // 5 second delay
-    }
-  });
+
 
   // ── AJAX Submission ───────────────────────────────────────────────
   const successMsg = document.getElementById('modal-success');
