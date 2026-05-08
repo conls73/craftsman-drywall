@@ -16,7 +16,7 @@
 @media (max-width: 768px) {
   #master-hero-root .mobile-hero-shell {
     min-height: 78vh !important;
-    padding: 5.5rem 1rem 7.5rem !important;
+    padding: 5.25rem 1rem 6.5rem !important;
   }
 
   #master-hero-root #mobile-slideshow img {
@@ -26,31 +26,35 @@
   }
 
   #master-hero-root .mobile-hero-shell > .absolute .bg-navy\/60 {
-    background: rgba(5, 16, 33, 0.62) !important;
+    background: rgba(5, 16, 33, 0.48) !important;
   }
 
   #master-hero-root .mobile-hero-card {
-    width: min(100%, 350px) !important;
-    max-width: 350px !important;
-    padding: 20px 18px !important;
-    border-radius: 22px !important;
-    background: rgba(15, 37, 70, 0.72) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
+    width: min(100%, 335px) !important;
+    max-width: 335px !important;
+    padding: 18px 16px !important;
+    border-radius: 20px !important;
+    background: rgba(10, 28, 52, 0.45) !important;
+    backdrop-filter: blur(10px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24) !important;
   }
 
   #master-hero-root .mobile-hero-title {
-    font-size: clamp(2rem, 9vw, 2.55rem) !important;
-    line-height: 1.05 !important;
-    margin-bottom: 0.75rem !important;
+    font-size: clamp(1.72rem, 7.8vw, 2.15rem) !important;
+    line-height: 1.06 !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  #master-hero-root .mobile-hero-title .text-blue-brand {
+    font-size: 0.92em !important;
   }
 
   #master-hero-root .mobile-hero-body {
-    font-size: 0.95rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 1.1rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.42 !important;
+    margin-bottom: 0.95rem !important;
   }
 
   #master-hero-root .mobile-hero-card .flex.flex-col.gap-4 {
@@ -59,9 +63,9 @@
 
   #master-hero-root .mobile-hero-card .cta-button {
     width: 100% !important;
-    padding: 0.8rem 1rem !important;
-    border-radius: 0.9rem !important;
-    font-size: 1rem !important;
+    padding: 0.72rem 0.9rem !important;
+    border-radius: 0.8rem !important;
+    font-size: 0.92rem !important;
     line-height: 1.2 !important;
   }
 
@@ -71,30 +75,45 @@
   }
 
   .global-floating-actions {
-    left: 0.75rem !important;
+    left: auto !important;
     right: 0.75rem !important;
     bottom: 0.75rem !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     align-items: stretch !important;
-    justify-content: center !important;
-    gap: 0.5rem !important;
+    justify-content: flex-end !important;
+    gap: 0 !important;
   }
 
-  .global-floating-actions .floating-button {
-    flex: 1 1 0 !important;
+  .global-floating-actions .floating-review-button {
+    display: none !important;
+  }
+
+  .global-floating-actions .floating-estimate-button {
     min-width: 0 !important;
-    padding: 0.7rem 0.75rem !important;
+    padding: 0.72rem 0.9rem !important;
     gap: 0.4rem !important;
     border-radius: 999px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(12px) !important;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
   }
 
-  .global-floating-actions .floating-button svg {
+  .show-mobile-sticky-cta .global-floating-actions .floating-estimate-button {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  .global-floating-actions .floating-estimate-button svg {
     width: 1rem !important;
     height: 1rem !important;
     flex-shrink: 0 !important;
   }
 
-  .global-floating-actions .floating-button span {
+  .global-floating-actions .floating-estimate-button span {
     font-size: 0.78rem !important;
     letter-spacing: 0 !important;
   }
