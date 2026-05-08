@@ -56,7 +56,7 @@ const slideshowImages = Array.from(
           <img 
             src={src} 
             alt="" 
-            class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === 0 ? 'opacity-100' : 'opacity-0'}`} 
+            class={`slideshow-image absolute inset-0 w-full h-full object-cover ${i === 0 ? 'is-active opacity-100' : 'opacity-0'}`} 
             style="object-position: center;"
           />
         ))}
@@ -130,16 +130,25 @@ const slideshowImages = Array.from(
       const nextImage = shuffledSlides[currentSlideIndex];
       currentSlideIndex += 1;
 
-      currentImage?.classList.remove('opacity-100');
+      currentImage?.classList.remove('is-active', 'opacity-100');
+      currentImage?.classList.add('is-previous');
       currentImage?.classList.add('opacity-0');
 
       nextImage.classList.remove('opacity-0');
-      nextImage.classList.add('opacity-100');
+      nextImage.classList.remove('is-previous');
+      nextImage.classList.add('is-active', 'opacity-100');
+
+      if (currentImage) {
+        window.setTimeout(() => {
+          currentImage?.classList.remove('is-previous');
+        }, 1000);
+      }
+
       currentImage = nextImage;
     }
 
     images.forEach((image) => {
-      image.classList.remove('opacity-100');
+      image.classList.remove('is-active', 'is-previous', 'opacity-100');
       image.classList.add('opacity-0');
     });
 
