@@ -14,16 +14,73 @@
 
 /* Final homepage mobile overrides */
 @media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100% !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  header a,
+  header img,
+  #master-hero-root,
+  #master-hero-root * {
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+
+  header a,
+  header img {
+    transform: none !important;
+  }
+
+  button:hover,
+  .btn:hover,
+  .cta-button:hover,
+  .floating-button:hover,
+  .estimate-button:hover {
+    transform: none !important;
+  }
+
+  #master-hero-root {
+    min-height: auto !important;
+    overflow: hidden !important;
+    transform: none !important;
+    animation: none !important;
+    background-attachment: scroll !important;
+    contain: layout paint !important;
+  }
+
   #master-hero-root .mobile-hero-shell {
-    min-height: 78vh !important;
+    min-height: 78svh !important;
+    height: auto !important;
     align-items: flex-end !important;
     padding: 5rem 1rem 2.75rem !important;
+    overflow: hidden !important;
+    transform: none !important;
+    animation: none !important;
+    background-attachment: scroll !important;
   }
 
   #master-hero-root #mobile-slideshow img {
     object-fit: cover !important;
     object-position: center !important;
-    transition: opacity 1200ms ease-in-out !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    scale: 1 !important;
+    animation: none !important;
+    background-attachment: scroll !important;
+    transition: opacity 200ms ease !important;
+  }
+
+  #master-hero-root #mobile-slideshow,
+  #master-hero-root .mobile-hero-shell > .absolute {
+    transform: none !important;
+    animation: none !important;
+    background-attachment: scroll !important;
   }
 
   #master-hero-root .mobile-hero-shell > .absolute .bg-navy\/60 {
@@ -42,6 +99,9 @@
     -webkit-backdrop-filter: blur(9px) saturate(1.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.18) !important;
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 
   #master-hero-root .mobile-hero-label {
@@ -130,6 +190,7 @@
     pointer-events: none !important;
     transform: translateY(12px) !important;
     transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+    will-change: opacity, transform !important;
   }
 
   .show-mobile-sticky-cta .global-floating-actions .floating-estimate-button {
@@ -151,16 +212,20 @@
   }
 
   #estimate-modal {
-    width: min(92vw, 520px) !important;
+    width: calc(100vw - 24px) !important;
     max-width: 520px !important;
-    max-height: 88vh !important;
-    overflow-y: auto !important;
+    height: calc(100svh - 24px) !important;
+    max-height: calc(100svh - 24px) !important;
+    overflow-y: hidden !important;
     margin: auto !important;
-    padding: 22px !important;
-    border-radius: 24px !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
     background: rgba(8, 24, 42, 0.96) !important;
     color: white !important;
     box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
   }
 
   #estimate-modal::backdrop {
@@ -171,8 +236,15 @@
 
   #estimate-modal h2 {
     color: white !important;
-    font-size: 2rem !important;
-    line-height: 1.1 !important;
+    font-size: 1.65rem !important;
+    line-height: 1.05 !important;
+    margin: 0 42px 4px 0 !important;
+  }
+
+  #estimate-modal h2 + p {
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+    margin: 0 42px 12px 0 !important;
   }
 
   #estimate-modal h2 + p,
@@ -191,9 +263,13 @@
     border-radius: 999px !important;
     width: 38px !important;
     height: 38px !important;
+    margin-left: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
   }
 
   #estimate-modal #modal-close:hover {
@@ -203,20 +279,78 @@
   #estimate-modal input,
   #estimate-modal select,
   #estimate-modal textarea {
+    min-height: 42px !important;
+    padding: 9px 12px !important;
     font-size: 16px !important;
+    box-sizing: border-box !important;
   }
 
   #estimate-modal .grid {
-    gap: 0.85rem !important;
+    gap: 0.5rem !important;
   }
 
   #estimate-modal form {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 0 !important;
+    min-height: 0 !important;
+  }
+
+  #estimate-modal form > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  #estimate-modal label {
+    margin-bottom: 0.25rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.15 !important;
+  }
+
+  #estimate-modal textarea {
+    min-height: 68px !important;
+    resize: none !important;
+  }
+
+  #estimate-modal .flex.flex-col.sm\:flex-row {
+    margin-top: auto !important;
+    gap: 0.5rem !important;
+  }
+
+  #estimate-modal button[type="submit"] {
+    min-height: 50px !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  #estimate-modal #modal-success,
+  #estimate-modal #modal-error {
+    padding: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
   #estimate-modal a[href^="tel:"] {
     color: rgba(255, 255, 255, 0.9) !important;
     border-color: rgba(255, 255, 255, 0.22) !important;
+    padding-top: 0.65rem !important;
+    padding-bottom: 0.65rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  #estimate-modal {
+    overflow-y: auto !important;
+  }
+
+  #estimate-modal textarea {
+    min-height: 58px !important;
+  }
+
+  #estimate-modal form > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.42rem !important;
   }
 }
 

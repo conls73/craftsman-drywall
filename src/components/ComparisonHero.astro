@@ -92,26 +92,64 @@ const slideshowImages = [
 
 
 <script>
+  function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+  }
+
   function initMobileSlideshow() {
     const slideshow = document.getElementById('mobile-slideshow');
     if (!slideshow || slideshow.dataset.initialized === 'true') return;
     if (!window.matchMedia('(max-width: 768px)').matches) return;
 
-    const images = slideshow.querySelectorAll('img');
+    const images = Array.from(slideshow.querySelectorAll('img'));
     if (images.length < 2) return;
 
     slideshow.dataset.initialized = 'true';
-    let currentIndex = 0;
+    let currentImage = null;
+    let shuffledSlides = shuffleArray(images);
+    let currentSlideIndex = 0;
 
-    setInterval(() => {
-      images[currentIndex].classList.remove('opacity-100');
-      images[currentIndex].classList.add('opacity-0');
-      
-      currentIndex = (currentIndex + 1) % images.length;
-      
-      images[currentIndex].classList.remove('opacity-0');
-      images[currentIndex].classList.add('opacity-100');
-    }, 5000);
+    function reshuffleSlides() {
+      const previousImage = currentImage;
+      shuffledSlides = shuffleArray(images);
+
+      if (previousImage && shuffledSlides[0] === previousImage && shuffledSlides.length > 1) {
+        [shuffledSlides[0], shuffledSlides[1]] = [shuffledSlides[1], shuffledSlides[0]];
+      }
+
+      currentSlideIndex = 0;
+    }
+
+    function showNextSlide() {
+      if (currentSlideIndex >= shuffledSlides.length) {
+        reshuffleSlides();
+      }
+
+      const nextImage = shuffledSlides[currentSlideIndex];
+      currentSlideIndex += 1;
+
+      currentImage?.classList.remove('opacity-100');
+      currentImage?.classList.add('opacity-0');
+
+      nextImage.classList.remove('opacity-0');
+      nextImage.classList.add('opacity-100');
+      currentImage = nextImage;
+    }
+
+    images.forEach((image) => {
+      image.classList.remove('opacity-100');
+      image.classList.add('opacity-0');
+    });
+
+    showNextSlide();
+    setInterval(showNextSlide, 5000);
   }
 
   document.addEventListener('DOMContentLoaded', initMobileSlideshow);
