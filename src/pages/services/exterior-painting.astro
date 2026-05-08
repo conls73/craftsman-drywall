@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<BaseLayout
+  title="Exterior Painting across Washington | Craftsman Drywall LLC"
+  description="Durable exterior painting for siding, trim, doors, garages, decks, and outdoor surfaces across Washington."
+>
+  <Header />
+
+  <section class="bg-navy py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+      <a href="/craftsman-drywall/services" class="inline-flex items-center gap-1.5 text-white/50 text-sm hover:text-white mb-8 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        All Services
+      </a>
+      <p class="text-blue-brand font-semibold text-sm uppercase tracking-widest mb-4">Service</p>
+      <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-6">Exterior Painting</h1>
+      <p class="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">Durable exterior painting for siding, trim, doors, garages, decks, and outdoor surfaces across Washington.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Exterior Painting Built for Washington Weather</h2>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+              <p>A strong exterior paint job starts with proper preparation. We clean, scrape, sand, caulk, prime, and prepare surfaces so the finish can hold up against rain, sun, wind, and seasonal wear.</p>
+              <p>From siding and trim to doors, garages, decks, and outdoor surfaces, Craftsman Drywall LLC provides clean exterior painting with careful prep, quality materials, and a finish built to protect and improve your property.</p>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-5">Painting Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { 
+                  title: 'Exterior Painting', 
+                  desc: 'Weather-resistant exterior paint applied to last through the Pacific Northwest climate.',
+                  icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`
+                },
+                { 
+                  title: 'Siding & Trim', 
+                  desc: 'Protect and refresh your siding, fascia, and window trim with durable finishes.',
+                  icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`
+                },
+                { 
+                  title: 'Power Washing & Prep', 
+                  desc: 'Full surface cleaning, scraping, and priming before any color goes on.',
+                  icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />`
+                },
+                { 
+                  title: 'Deck & Fence Staining', 
+                  desc: 'Restore and protect your outdoor wood surfaces from weather damage.',
+                  icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM9 12h6M12 9v6" />`
+                },
+              ].map(item => (
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 flex gap-4">
+                  <div class="w-10 h-10 bg-blue-light rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-blue-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <Fragment set:html={item.icon} />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">{item.title}</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <div class="bg-navy text-white rounded-2xl p-7">
+            <h3 class="font-bold text-lg mb-4">Ready for a Fresh Look?</h3>
+            <p class="text-white/70 text-sm mb-5">Free painting estimates for residential and commercial clients.</p>
+            <a href="/craftsman-drywall/contact" data-estimate class="block bg-blue-brand hover:bg-blue-dark text-white font-bold text-center py-3 px-5 rounded-xl transition-colors">Get a Free Estimate</a>
+            <a href="tel:3602822218" class="block mt-3 border border-white/20 text-white text-center py-3 px-5 rounded-xl text-sm hover:bg-white/10 transition-colors">(360) 282-2218</a>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <h3 class="font-bold text-gray-900 mb-3">Service Details</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex gap-2"><span class="text-blue-brand font-bold">✓</span> Residential & commercial</li>
+              <li class="flex gap-2"><span class="text-blue-brand font-bold">✓</span> Free estimates</li>
+              <li class="flex gap-2"><span class="text-blue-brand font-bold">✓</span> Licensed & insured</li>
+              <li class="flex gap-2"><span class="text-blue-brand font-bold">✓</span> Mon–Fri, 7am to 5pm</li>
+              <li class="flex gap-2"><span class="text-blue-brand font-bold">✓</span> Senior & military discount</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner heading="Ready for a Fresh Coat?" subtext="Call us or request a free painting estimate. We serve across Washington." />
+  <Footer />
+</BaseLayout>
