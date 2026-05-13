@@ -10,23 +10,23 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="site-header sticky top-0 relative z-[150] bg-navy border-b border-white/5 py-3 xl:py-4">
+<header class="site-header sticky top-0 relative z-[150] bg-navy border-b border-white/5 py-3 min-[641px]:py-4">
   <div class="site-header-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header Container -->
-    <div class="desktop-nav-inner flex xl:grid xl:grid-cols-[1fr_auto_1fr] items-center justify-between gap-4 relative w-full">
+    <div class="desktop-nav-inner flex min-[641px]:grid min-[641px]:grid-cols-[1fr_auto_1fr] items-center justify-between gap-4 relative w-full">
       <!-- Logo (Left) -->
-      <div class="xl:justify-self-start z-10 flex items-center xl:min-w-[330px] max-w-none overflow-visible">
+      <div class="min-[641px]:justify-self-start z-10 flex items-center min-[641px]:min-w-[330px] max-w-none overflow-visible">
         <a href="/craftsman-drywall/" class="flex items-center transition-transform hover:scale-105 duration-300">
           <img
             src="/craftsman-drywall/logo.svg"
             alt="Craftsman Drywall LLC"
-            class="h-20 sm:h-20 xl:h-auto w-auto max-w-[calc(100vw-6rem)] xl:w-[330px] xl:min-w-[330px] xl:max-w-none block object-contain"
+            class="h-20 sm:h-20 min-[641px]:h-auto w-auto max-w-[calc(100vw-6rem)] min-[641px]:w-[330px] min-[641px]:min-w-[330px] min-[641px]:max-w-none block object-contain"
           />
         </a>
       </div>
 
       <!-- Centered Nav (Middle) -->
-      <div class="hidden xl:flex xl:justify-self-center z-10">
+      <div class="hidden min-[641px]:flex min-[641px]:justify-self-center z-10">
         <nav class="flex items-center justify-center gap-4 bg-white/5 backdrop-blur-sm px-8 py-1.5 rounded-full border border-white/10">
           {navLinks.map(link => {
             const isHome = link.label === 'Home';
@@ -58,7 +58,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Right Side: Phone & Socials -->
-      <div class="hidden xl:flex xl:justify-self-end items-center gap-8 z-10">
+      <div class="hidden min-[641px]:flex min-[641px]:justify-self-end items-center gap-8 z-10">
         <a
           href="tel:3602822218"
           class="text-white/70 text-sm font-bold hover:text-white transition-colors whitespace-nowrap"
@@ -81,7 +81,7 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Mobile menu button -->
-      <div class="flex justify-end xl:hidden">
+      <div class="flex justify-end min-[641px]:hidden">
         <button
           id="menu-toggle"
           class="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
@@ -99,7 +99,7 @@ const currentPath = Astro.url.pathname;
 
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden xl:hidden mt-6 pb-4 animate-in fade-in slide-in-from-top-4 duration-300">
+    <div id="mobile-menu" class="hidden min-[641px]:hidden mt-6 pb-4 animate-in fade-in slide-in-from-top-4 duration-300">
       <nav class="flex flex-col gap-2">
         {navLinks.map(link => {
           const isHome = link.label === 'Home';

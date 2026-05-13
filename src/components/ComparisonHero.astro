@@ -11,7 +11,7 @@ const slideshowImages = Array.from(
 <div id="master-hero-root" class="hero-state-side-by-side relative w-full overflow-hidden bg-navy">
 
   <!-- Hero Content Area (Desktop) -->
-  <div class="relative w-full min-h-[100vh] lg:min-h-[950px] lg:flex hidden items-center pt-20">
+  <div class="relative w-full min-h-[100vh] min-[641px]:min-h-[950px] min-[641px]:flex hidden items-center pt-20">
     
     <!-- FULL HEADER SIDE-BY-SIDE MODE (Background) -->
     <div id="bg-side-by-side" class="absolute inset-0 flex transition-opacity duration-700">
@@ -49,7 +49,7 @@ const slideshowImages = Array.from(
   </div>
 
   <!-- Mobile Stacked Layout -->
-  <div class="mobile-hero-shell lg:hidden relative min-h-[85vh] flex items-center justify-center px-4 py-16 overflow-hidden">
+  <div class="mobile-hero-shell hidden max-[640px]:flex relative min-h-[85vh] items-center justify-center px-4 py-16 overflow-hidden">
     <!-- Mobile Slideshow Background -->
     <div class="absolute inset-0 z-0">
       <div id="mobile-slideshow" class="absolute inset-0 w-full h-full">

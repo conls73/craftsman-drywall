@@ -185,7 +185,7 @@ const schema = {
         }
       }
       /* GLOBAL MOBILE OVERRIDES */
-      @media (max-width: 768px) {
+      @media (max-width: 640px) {
         .mobile-hero-card {
           padding: 28px 24px !important;
           border-radius: 32px !important;
@@ -261,7 +261,7 @@ const schema = {
       const initMobileStickyCta = () => {
         if (mobileStickyCtaInitialized) return;
 
-        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        const mediaQuery = window.matchMedia('(max-width: 640px)');
         const stickyEstimateButton = document.querySelector('.mobile-sticky-estimate');
         if (!stickyEstimateButton) return;
 

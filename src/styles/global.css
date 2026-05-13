@@ -49,7 +49,7 @@ body.estimate-modal-open {
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 641px) {
   .site-header {
     display: flex;
     justify-content: center;
@@ -70,7 +70,7 @@ body.estimate-modal-open {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 641px) {
   #bg-side-by-side,
   #bg-side-by-side * {
     pointer-events: none !important;
@@ -157,7 +157,7 @@ body.estimate-modal-open {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   html {
     -webkit-text-size-adjust: 100% !important;
   }
@@ -531,7 +531,7 @@ body.estimate-modal-open {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 641px) {
   .global-floating-actions {
     position: fixed !important;
     right: 24px !important;
