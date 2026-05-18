@@ -1,0 +1,51 @@
+13:59:05 [ERROR] spawn EPERM
+  Stack trace:
+    at ChildProcess.spawn (node:internal/child_process:414:11)
+    at Object.execFile (node:child_process:351:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.
+15:14:31 [ERROR] [vite] Error: [31m  Failed to scan for dependencies from entries:
+  C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/BeforeAfter.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/ComparisonHero.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/CTABanner.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/EstimateModal.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/Footer.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/Header.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/layouts/BaseLayout.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/careers.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/contact.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/gallery.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/index.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/drywall-installation.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/drywall-repair.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/exterior-painting.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/index.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/painting.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/remodeling.astro
+
+  [39mCannot find module 'esbuild'
+Require stack:
+- C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Function.resolve (node:internal/modules/helpers:188:19)
+    at downloadedBinPath (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1674:46)
+    at generateBinPath (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1690:15)
+    at esbuildCommandAndArgs (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1817:33)
+    at ensureServiceIsRunning (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1974:25)
+    at Object.context (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1874:33)
+    at prepareEsbuildScanner (file:///C:/Users/gptqu_zuydonh/Desktop/Craftsman/node_modules/astro/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49576:24)
+    at async file:///C:/Users/gptqu_zuydonh/Desktop/Craftsman/node_modules/astro/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:50174:26
+15:31:28 [ERROR] spawn EPERM
+  Stack trace:
+    at ChildProcess.spawn (node:internal/child_process:414:11)
+    at Object.execFile (node:child_process:351:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.
+16:12:24 [ERROR] spawn EPERM
+  Stack trace:
+    at ChildProcess.spawn (node:internal/child_process:414:11)
+    at Object.execFile (node:child_process:351:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.
+14:42:26 [ERROR] spawn EPERM
+  Stack trace:
+    at ChildProcess.spawn (node:internal/child_process:414:11)
+    at Object.execFile (node:child_process:351:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.

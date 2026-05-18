@@ -1,0 +1,21 @@
+
+> craftsman-drywall-llc@1.0.0 dev
+> astro dev --host 127.0.0.1 --port 4321
+
+13:07:26 [build] Waiting for integration "@astrojs/tailwind", hook "astro:config:setup"...
+13:07:26 [types] Generated 2ms
+
+ astro  v4.16.19 ready in 24146 ms
+
+┃ Local    http://127.0.0.1:4321/craftsman-drywall
+
+13:07:27 watching for file changes...
+15:14:31 Configuration file removed. Restarting...
+15:14:31 [vite] changed tsconfig file detected: C:\Users\gptqu_zuydonh\Desktop\Craftsman\tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+15:14:31 [types] Generated 4ms
+15:14:31 [WARN] [vite] Failed to resolve dependency: [36mastro > cssesc[39m, present in 'optimizeDeps.include'
+15:14:31 [WARN] [vite] Failed to resolve dependency: [36mastro > aria-query[39m, present in 'optimizeDeps.include'
+15:14:31 [WARN] [vite] Failed to resolve dependency: [36mastro > axobject-query[39m, present in 'optimizeDeps.include'
+15:16:29 Configuration file added. Restarting...
+15:16:30 [vite] changed tsconfig file detected: C:\Users\gptqu_zuydonh\Desktop\Craftsman\tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+15:16:30 [types] Generated 32ms
