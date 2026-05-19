@@ -337,6 +337,32 @@ body.estimate-modal-open {
     white-space: nowrap !important;
   }
 
+  /* Hero buttons grid alignment for center seam */
+  .hero-buttons {
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    column-gap: 24px !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .hero-buttons .cta-button {
+    width: auto !important;
+    min-width: 220px !important;
+    max-width: 260px !important;
+  }
+
+  .hero-buttons .cta-button:first-child {
+    justify-self: end !important;
+  }
+
+  .hero-buttons .cta-button:last-child {
+    justify-self: start !important;
+  }
+
   header,
   header a,
   header button,
@@ -400,6 +426,26 @@ body.estimate-modal-open {
     transform: none !important;
     animation: none !important;
     background-attachment: scroll !important;
+  }
+
+  /* Mobile: stack buttons instead of grid */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .hero-buttons .cta-button {
+    justify-self: center !important;
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .hero-buttons .cta-button:first-child,
+  .hero-buttons .cta-button:last-child {
+    justify-self: center !important;
   }
 
   #master-hero-root #mobile-slideshow img {
