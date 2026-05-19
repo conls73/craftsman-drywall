@@ -68,6 +68,9 @@ body.estimate-modal-open {
 .site-header {
   width: 100%;
   overflow: visible;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 150 !important;
 }
 
 .site-header-container {
