@@ -904,3 +904,57 @@ body.estimate-modal-open {
 .hero-after-label {
   text-align: right !important;
 }
+
+/* Subpage header centering */
+section:has(> div > h1:not([class*="hero-title"])) > div,
+section:has(> div > p:first-child > [class*="uppercase"]) > div {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+section:has(> div > h1:not([class*="hero-title"])) > div h1,
+section:has(> div > p:first-child > [class*="uppercase"]) > div h1 {
+  width: 100% !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+section:has(> div > h1:not([class*="hero-title"])) > div p,
+section:has(> div > p:first-child > [class*="uppercase"]) > div p {
+  text-align: center !important;
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Explicit centering for all subpage header sections */
+main > div[class*="max-w"],
+section[class*="bg-navy"] > div[class*="max-w"],
+section[class*="bg-white"] > div[class*="max-w"] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+main > div[class*="max-w"] h1,
+section[class*="bg-navy"] > div[class*="max-w"] h1,
+section[class*="bg-white"] > div[class*="max-w"] h1 {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+main > div[class*="max-w"] p,
+section[class*="bg-navy"] > div[class*="max-w"] p,
+section[class*="bg-white"] > div[class*="max-w"] p {
+  text-align: center !important;
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
