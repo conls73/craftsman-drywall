@@ -49,3 +49,29 @@ Require stack:
     at ChildProcess.spawn (node:internal/child_process:414:11)
     at Object.execFile (node:child_process:351:17)
     [...] See full stack trace in the browser, or rerun with --verbose.
+18:47:59 [ERROR] [vite] Error: [31m  Failed to scan for dependencies from entries:
+  C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/BeforeAfter.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/ComparisonHero.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/CTABanner.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/EstimateModal.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/Footer.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/components/Header.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/layouts/BaseLayout.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/careers.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/contact.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/gallery.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/index.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/drywall-installation.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/drywall-repair.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/exterior-painting.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/index.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/painting.astro
+C:/Users/gptqu_zuydonh/Desktop/Craftsman/src/pages/services/remodeling.astro
+
+  [39mspawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:414:11)
+    at Object.spawn (node:child_process:761:9)
+    at ensureServiceIsRunning (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1975:29)
+    at Object.context (C:\Users\gptqu_zuydonh\Desktop\Craftsman\node_modules\astro\node_modules\esbuild\lib\main.js:1874:33)
+    at prepareEsbuildScanner (file:///C:/Users/gptqu_zuydonh/Desktop/Craftsman/node_modules/astro/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49576:24)
+    at async file:///C:/Users/gptqu_zuydonh/Desktop/Craftsman/node_modules/astro/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:50174:26

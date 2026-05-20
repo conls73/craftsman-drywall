@@ -19,3 +19,10 @@
 15:16:29 Configuration file added. Restarting...
 15:16:30 [vite] changed tsconfig file detected: C:\Users\gptqu_zuydonh\Desktop\Craftsman\tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
 15:16:30 [types] Generated 32ms
+18:47:57 Configuration file updated. Restarting...
+18:47:58 [types] Generated 14ms
+18:47:59 [WARN] [vite] Failed to resolve dependency: [36mastro > cssesc[39m, present in 'optimizeDeps.include'
+18:47:59 [WARN] [vite] Failed to resolve dependency: [36mastro > aria-query[39m, present in 'optimizeDeps.include'
+18:47:59 [WARN] [vite] Failed to resolve dependency: [36mastro > axobject-query[39m, present in 'optimizeDeps.include'
+18:53:44 [WARN] Unsupported file type C:\Users\gptqu_zuydonh\Desktop\Craftsman\src\pages\gallery.astro.tmp.40952.e6b794f9e942 found. Prefix filename with an underscore (`_`) to ignore.
+18:54:59 [WARN] Unsupported file type C:\Users\gptqu_zuydonh\Desktop\Craftsman\src\pages\services\index.astro.tmp.40952.9d765d0c01f8 found. Prefix filename with an underscore (`_`) to ignore.

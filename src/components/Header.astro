@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { href: '/craftsman-drywall/', label: 'Home' },
-  { href: '/craftsman-drywall/services', label: 'Services' },
-  { href: '/craftsman-drywall/gallery', label: 'Gallery' },
-  { href: '/craftsman-drywall/careers/', label: 'Careers' },
-  { href: '/craftsman-drywall/contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/careers/', label: 'Careers' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -16,9 +16,9 @@ const currentPath = Astro.url.pathname;
     <div class="desktop-nav-inner relative w-full">
       <!-- Logo (Left) -->
       <div class="header-logo z-10 flex items-center overflow-visible">
-        <a href="/craftsman-drywall/" class="header-logo-link flex items-center transition-transform hover:scale-105 duration-300">
+        <a href="/" class="header-logo-link flex items-center transition-transform hover:scale-105 duration-300">
           <img
-            src="/craftsman-drywall/logo.svg"
+            src="/logo.svg"
             alt="Craftsman Drywall LLC"
             class="header-logo-img block object-contain"
           />
@@ -75,7 +75,7 @@ const currentPath = Astro.url.pathname;
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.82 0-8.67-3.89-8.67-8.8s3.85-8.8 8.67-8.8c2.62 0 4.6 1.04 6.13 2.5l2.31-2.31C19.34 1.6 16.48 0 12.48 0 5.86 0 .3 5.39.3 12s5.56 12 12.18 12c3.57 0 6.26-1.17 8.37-3.36 2.16-2.16 2.84-5.21 2.84-7.66 0-.76-.05-1.46-.14-2.06h-11.07z"/></svg>
           </a>
           <a href="https://www.angi.com/companylist/us/wa/olympia/craftsman-drywall-llc-reviews-10583896.htm" target="_blank" rel="noopener noreferrer" class="nav-social-link text-blue-brand hover:text-white transition-colors flex items-center justify-center" aria-label="Angi">
-            <div class="nav-social-mask bg-current" style="mask-image: url('/craftsman-drywall/images/angi-logo.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/craftsman-drywall/images/angi-logo.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
+            <div class="nav-social-mask bg-current" style="mask-image: url('/images/angi-logo.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/images/angi-logo.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
           </a>
         </div>
       </div>
@@ -135,7 +135,7 @@ const currentPath = Astro.url.pathname;
             Call Us
           </a>
           <a
-            href="/craftsman-drywall/contact"
+            href="/contact"
             data-estimate
             class="flex items-center justify-center px-4 py-3 bg-blue-brand text-white text-sm font-bold rounded-xl shadow-lg shadow-blue-brand/20"
           >
@@ -152,7 +152,7 @@ const currentPath = Astro.url.pathname;
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.82 0-8.67-3.89-8.67-8.8s3.85-8.8 8.67-8.8c2.62 0 4.6 1.04 6.13 2.5l2.31-2.31C19.34 1.6 16.48 0 12.48 0 5.86 0 .3 5.39.3 12s5.56 12 12.18 12c3.57 0 6.26-1.17 8.37-3.36 2.16-2.16 2.84-5.21 2.84-7.66 0-.76-.05-1.46-.14-2.06h-11.07z"/></svg>
           </a>
           <a href="https://www.angi.com/companylist/us/wa/olympia/craftsman-drywall-llc-reviews-10583896.htm" target="_blank" rel="noopener noreferrer" class="text-blue-brand hover:text-white transition-colors flex items-center justify-center w-10 h-10" aria-label="Angi">
-            <div class="w-[36px] h-[36px] bg-current" style="mask-image: url('/craftsman-drywall/images/angi-logo.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/craftsman-drywall/images/angi-logo.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
+            <div class="w-[36px] h-[36px] bg-current" style="mask-image: url('/images/angi-logo.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/images/angi-logo.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
           </a>
         </div>
       </nav>
