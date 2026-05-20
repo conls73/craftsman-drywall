@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Thank You — Request Received | Craftsman Drywall LLC"
+  description="Your free estimate request has been received. Craftsman Drywall will review and get back to you as soon as possible."
+>
+  <Header />
+
+  <section class="bg-white py-32">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <div class="mb-8">
+        <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 mb-4">Thank you</h1>
+      <p class="text-xl text-gray-600 mb-8 leading-relaxed">Your estimate request has been sent.</p>
+      <p class="text-lg text-gray-600 mb-12 leading-relaxed">Craftsman Drywall will review your request and get back to you as soon as possible.</p>
+      <a href="/" class="inline-block bg-blue-brand hover:bg-blue-dark text-white font-bold py-3 px-8 rounded-xl text-lg transition-colors duration-300 shadow-lg shadow-blue-brand/25">
+        Back to Home
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
