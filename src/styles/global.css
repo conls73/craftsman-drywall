@@ -974,9 +974,11 @@ section:has(> div[class*="max-w"] > p[class*="uppercase"]) {
   justify-content: center !important;
   text-align: center !important;
   box-sizing: border-box !important;
-  min-height: clamp(340px, 50vh, 520px) !important;
-  padding-top: clamp(5rem, 10vw, 8rem) !important;
-  padding-bottom: clamp(5rem, 10vw, 8rem) !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding-top: clamp(4.5rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(2.5rem, 4vw, 4rem) !important;
+  margin-bottom: 0 !important;
   overflow: visible !important;
 }
 
