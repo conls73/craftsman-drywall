@@ -972,12 +972,16 @@ section:has(> div[class*="max-w"] > p[class*="uppercase"]) {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: clamp(320px, 45vh, 500px) !important;
-  padding-top: clamp(3rem, 6vw, 5rem) !important;
-  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+  text-align: center !important;
   box-sizing: border-box !important;
+  min-height: clamp(340px, 50vh, 520px) !important;
+  padding-top: clamp(5rem, 10vw, 8rem) !important;
+  padding-bottom: clamp(5rem, 10vw, 8rem) !important;
+  overflow: visible !important;
 }
 
 section:has(> div[class*="max-w"] > p[class*="uppercase"]) > div[class*="max-w"][class*="flex"] {
   justify-content: center !important;
+  align-items: center !important;
+  transform: translateY(clamp(8px, 2vw, 24px)) !important;
 }
